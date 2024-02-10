@@ -1,0 +1,29 @@
+[[pages]]
+path = "main.py"
+name = "Tech Challenge 3"
+icon = ":house:"
+
+[[pages]]
+path = "pages/intro.page.py"
+name = "Introdução"
+icon = ":books:"
+
+[[pages]]
+path = "pages/index.page.py"
+name = "Índice"
+icon = ":page_facing_up:"
+
+[[pages]]
+path = "pages/analise.page.py"
+name = "Análise"
+icon = ":memo:"
+
+[[pages]]
+path = "pages/conclusao.page.py"
+name = "Conclusão"
+icon = ":sparkles:"
+
+[[pages]]
+path = "pages/refs.page.py"
+name = "Referências"
+icon = ":globe_with_meridians:"

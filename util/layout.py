@@ -22,6 +22,6 @@ def output_layout():
         st.text('Danilo Henrique Achcar')
         st.text('RM 351516 | 2DTAT')
 
-    with st.spinner('Carregando...'):
-        time.sleep(1)
-        st.success("Carregamento concluído!", icon='✅')
+    # with st.spinner('Carregando...'):
+    #     time.sleep(1)
+    #     st.success("Carregamento concluído!", icon='✅')

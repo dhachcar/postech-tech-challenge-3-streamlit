@@ -12,6 +12,8 @@ output_layout()
 with st.container():
     st.header('Introdução')
 
+    st.tabs(tabs=['Perguntas PNAD COVID19', 'Apache Spark', 'Google BigQuery', 'Machine Learning'])
+
     st.page_link("pages/intro.page.py", label="Introdução", icon="🏠")
     st.page_link("pages/index.page.py", label="Índice", icon="1️⃣")
     st.page_link("pages/analise.page.py", label="Análise", icon="2️⃣", disabled=True)

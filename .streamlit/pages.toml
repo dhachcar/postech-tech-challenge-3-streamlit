@@ -22,3 +22,4 @@ icon = ":sparkles:"
 path = "pages/refs.page.py"
 name = "Referências"
 icon = ":globe_with_meridians:"
+is_section = true

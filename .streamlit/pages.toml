@@ -9,11 +9,6 @@ name = "Introdução"
 icon = ":books:"
 
 [[pages]]
-path = "pages/index.page.py"
-name = "Índice"
-icon = ":page_facing_up:"
-
-[[pages]]
 path = "pages/analise.page.py"
 name = "Análise"
 icon = ":memo:"

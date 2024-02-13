@@ -12,7 +12,7 @@ output_layout()
 with st.container():
     st.header('Introdução')
 
-    tab0, tab1, tab2, tab3 = st.tabs(tabs=['PNAD COVID19', 'Apache Spark', 'Google BigQuery', 'Machine Learning'])
+    tab0, tab1, tab2, tab3, tab4 = st.tabs(tabs=['PNAD COVID19', 'Apache Spark', 'Google BigQuery', 'Google Cloud Storage', 'Machine Learning'])
 
     with tab0:
         st.subheader(':blue[PNAD COVID19]', divider='blue')
@@ -25,6 +25,7 @@ with st.container():
         st.subheader(':blue[Bases de dados utilizadas]', divider='blue')
         st.markdown('''
             Durante este projeto, são utilizadas as bases de dados dos últimos 3 meses da PNAD COVID19 (Setembro, Outubro e Novembro).\n\n
+            Vale notar que segundo o IBGE, a amostra da pesquisa é fixa, ou seja, os domicílios entrevistados no primeiro mês de coleta de dados permanecerão na amostra nos meses subsequentes, até o fim da pesquisa e assim subsequentemente.\n\n
             Para a visualização das bases de dados, utilize o download abaixo:
         ''')
         st.link_button('Download', 'https://www.ibge.gov.br/estatisticas/downloads-estatisticas.html?caminho=Trabalho_e_Rendimento/Pesquisa_Nacional_por_Amostra_de_Domicilios_PNAD_COVID19/Microdados/Dados', help=None, type="secondary", disabled=False, use_container_width=False)
@@ -90,4 +91,28 @@ with st.container():
             | 19 | C013 | Na semana passada, o(a) Sr(a) estava em trabalho remoto (home office ou teletrabalho)? |
             | 20 | D0051 | Auxílios emergenciais relacionados ao coronavirus |
         ''')
-        
+    
+    with tab1:
+        st.subheader(':blue[Apache Spark]', divider='blue')
+        st.markdown('''
+            TODO: explicar sobre APACHE SPARK
+        ''')
+
+    with tab2:
+        st.subheader(':blue[Google BigQuery]', divider='blue')
+        st.markdown('''
+            TODO: explicar oq é e como estou utilizando... colocar prints das tabelas criadas da PNAD
+        ''')
+
+    with tab3:
+        st.subheader(':blue[Google Cloud Storage]', divider='blue')
+        st.markdown('''
+            TODO: explicar oq é e como estou utilizando... colocar prints dos arquivos + bucket criado
+        ''')
+
+    with tab3:
+        st.subheader(':blue[Machine Learning]', divider='blue')
+        st.markdown('''
+            TODO: explicar q será utilizado Algoritmos Não Supervisionados (KMEANS, DBSCAN, etc) via XTREMEBOOST, SPARK ML e BIG QUERY ML, co\n\n
+            colocar prints
+        ''')

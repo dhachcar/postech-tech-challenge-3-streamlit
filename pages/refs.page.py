@@ -14,4 +14,5 @@ with st.container():
     - Apache Spark. Apache. Disponível em: https://spark.apache.org/
     - Google Big Query. Google. Disponível em: https://cloud.google.com/bigquery
     - Google Cloud Storage. Google. Disponível em: https://cloud.google.com/storage
+    - Streamlit Documentation. Streamlit . Disponível em: https://docs.streamlit.io/
     ''')

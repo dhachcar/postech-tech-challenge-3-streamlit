@@ -2,7 +2,9 @@ import plotly.graph_objs as go
 import pandas as pd
 import streamlit as st
 from util.layout import output_layout
+import warnings
 
+warnings.filterwarnings('ignore')
 st.set_page_config(page_title="Tech Challenge 3 | FIAP", layout='wide')
 output_layout()
 
@@ -23,5 +25,6 @@ O objetivo deste trabalho é analisar os dados da PNAD COVID19 para compreender 
 
 st.subheader(':blue[Metodologia]', divider='blue')
 st.markdown('''
-Neste estudo, serão utilizados dados da PNAD COVID19 que foram coletados em seus últimos três meses (Setembro, Outubro e Novembro), organizados em um banco de dados em nuvem. Selecionaremos 20 perguntas relevantes sobre áreas afetadas pela pandemia. Os dados serão limpos e analisados estatisticamente para identificar padrões e relações entre as variáveis. Os resultados fornecerão insights sobre os impactos da COVID-19 no Brasil, orientando estratégias de enfrentamento e recuperação e auxiliando numa possível nova pandemia no futuro.
+Neste estudo, serão utilizados dados da PNAD COVID19 que foram coletados em seus últimos três meses (Setembro, Outubro e Novembro), organizados em um banco de dados em nuvem. Selecionaremos 20 perguntas relevantes sobre áreas afetadas pela pandemia. Os dados serão limpos e analisados estatisticamente para identificar padrões e relações entre as variáveis.\n\n
+Os resultados fornecerão insights sobre os impactos da COVID-19 no Brasil, orientando estratégias de enfrentamento e recuperação, além de auxiliar numa possível nova pandemia no futuro.
 ''')

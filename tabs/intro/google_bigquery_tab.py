@@ -25,6 +25,15 @@ class IntroGoogleBigQueryTab(TabInterface):
 
             st.image('assets/img/bigquery-explorer-datasets.png', caption='Tabelas no Google BigQuery')
 
+            with st.container():
+                col1, col2, _ = st.columns([1, 1, 1])
+            
+                with col1:
+                    st.image('assets/img/bigquery-exemplo tabela-não-processada.png', caption='Exemplo de colunas das tabelas originais (não processadas)')
+
+                with col2:
+                    st.image('assets/img/bigquery-exemplo-tabela-processada.png', caption='Exemplo de colunas das tabelas finais (processadas)')
+
             st.divider()
 
             st.markdown('''
@@ -61,8 +70,8 @@ class IntroGoogleBigQueryTab(TabInterface):
 
             st.markdown('''
                 **:blue[Dados de Novembro]**\n\n
-                A tabela inicial com os dados de Novembro possui :blue[380.461] registros e ocupa um total de :blue[215,36MB].\n\n
-                Já a versão processada, permanece com a mesma quantidade registros mas ocupando um total de :blue[74,53MB].
+                A tabela inicial com os dados de Novembro possui :blue[381.438] registros e ocupa um total de :blue[217,39MB].\n\n
+                Já a versão processada, permanece com a mesma quantidade registros mas ocupando um total de :blue[74,75MB].
             ''')
             with st.container():
                 col1, col2, _ = st.columns([1, 1, 1])
@@ -72,3 +81,12 @@ class IntroGoogleBigQueryTab(TabInterface):
 
                 with col2:
                     st.image('assets/img/bigquery-detalhes-pnad-nov-2020-processado.png', caption='Detalhes da tabela de Novembro (processado)')
+
+            st.divider()
+
+            st.markdown('''
+                **:blue[Dados consolidados]**\n\n
+                Ao juntarmos todas as 3 tabelas processadas, temos um total de :blue[1.149.187] registros.
+            ''')
+
+            st.image('assets/img/bigquery-total-registros-processados.png', caption='Total de registros geral')

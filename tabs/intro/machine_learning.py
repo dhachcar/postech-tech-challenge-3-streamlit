@@ -11,5 +11,6 @@ class IntroMachineLearningTab(TabInterface):
             st.subheader(':blue[Machine Learning]', divider='blue')
             st.markdown('''
                 TODO: explicar q será utilizado Algoritmos Não Supervisionados (KMEANS, DBSCAN, etc) via XTREMEBOOST, SPARK ML e BIG QUERY ML, co\n\n
-                colocar prints
+                colocar prints\n\n
+                connectar bigquery ao colabs
             ''')

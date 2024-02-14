@@ -10,5 +10,6 @@ class IntroGoogleBigQueryTab(TabInterface):
         with self.tab:
             st.subheader(':blue[Google BigQuery]', divider='blue')
             st.markdown('''
-                TODO: explicar oq é e como estou utilizando... colocar prints das tabelas criadas da PNAD
+                TODO: explicar oq é e como estou utilizando... colocar prints das tabelas criadas da PNAD\n\n
+                gerar tabelas com as colunas (no bigquery, explicar que serão utilizadas 2 tipos de tabela, inicial e processado)
             ''')

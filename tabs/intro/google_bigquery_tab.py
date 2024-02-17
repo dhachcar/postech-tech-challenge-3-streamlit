@@ -16,9 +16,12 @@ class IntroGoogleBigQueryTab(TabInterface):
 
             st.subheader(':blue[Tabelas]', divider='blue')
             st.markdown('''
-                Dentro do BigQuery, temos 2 tipos de tabela:
-                1) as tabelas com os dados originais;
-                2) as tabelas processadas, contemplando exclusivamente as colunas/features que serão utilizadas durante o projeto;
+                Dentro do banco de dados no BigQuery, temos 5 tipos de tabela:
+                1) Tabelas com os dados originais (mês a mês);
+                2) Tabelas processadas, contemplando exclusivamente as colunas/features que serão utilizadas durante o projeto (mês a mês);
+                3) Tabela de união das tabelas processadas mês a mês;
+                4) Tabela final de união com as colunas renomeadas para facilitar a o entendimento do schema;
+                5) Tabelas auxiliares com valores do domínio a respeito da pesquisa PNAD COVID19 (id de UF, por exemplo).
                         
                 As tabelas com os dados originais foram geradas a partir de arquivos CSV que foram enviados ao Google Cloud Storage, um serviço de armazenamento em nuvem (muito parecido com o S3 da Amazon).
             ''')

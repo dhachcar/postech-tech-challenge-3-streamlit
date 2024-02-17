@@ -2,24 +2,28 @@
 path = "main.py"
 name = "Tech Challenge 3"
 icon = ":house:"
+is_section = false
 
 [[pages]]
-path = "pages/intro.page.py"
+path = "pages/intro.py"
 name = "Introdução"
 icon = ":books:"
+is_section = false
 
 [[pages]]
-path = "pages/analise.page.py"
-name = "Análise"
+path = "pages/analise.py"
+name = "Explorações, descobertas e análises"
 icon = ":memo:"
+is_section = false
 
 [[pages]]
-path = "pages/conclusao.page.py"
+path = "pages/conclusao.py"
 name = "Conclusão"
 icon = ":sparkles:"
+is_section = false
 
 [[pages]]
-path = "pages/refs.page.py"
+path = "pages/refs.py"
 name = "Referências"
 icon = ":globe_with_meridians:"
 is_section = false

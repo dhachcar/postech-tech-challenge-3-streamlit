@@ -5,7 +5,7 @@ st.set_page_config(page_title="Referências | Tech Challenge 3 | FIAP", layout='
 output_layout()
 
 with st.container():
-    st.header('Referências')
+    st.header(':orange[Referências bibliográficas]')
 
     st.markdown('''
     - O que é. PNAD COVID19. IBGE. Disponível em: https://www.ibge.gov.br/estatisticas/investigacoes-experimentais/estatisticas-experimentais/27946-divulgacao-semanal-pnadcovid1?t=o-que-e\n\n

@@ -10,7 +10,7 @@ st.set_page_config(page_title="Introdução | Tech Challenge 3 | FIAP", layout='
 output_layout()
 
 with st.container():
-    st.header('Introdução')
+    st.header(':orange[Introdução]')
 
     tab0, tab1, tab2, tab3, tab4 = st.tabs(tabs=['PNAD COVID19', 'Apache Spark', 'Google BigQuery', 'Google Cloud Storage', 'Machine Learning'])
 

@@ -8,7 +8,7 @@ warnings.filterwarnings('ignore')
 st.set_page_config(page_title="Tech Challenge 3 | FIAP", layout='wide')
 output_layout()
 
-st.header('Tech Challenge 3 | Data Science | FIAP')
+st.header(':orange[Tech Challenge 3 | Data Science | FIAP]')
 
 st.subheader(':blue[Explorando os Impactos da Pandemia de COVID-19 no Brasil através da Análise de Dados]', divider='blue')
 st.markdown('''

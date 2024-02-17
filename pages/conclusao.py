@@ -5,4 +5,4 @@ st.set_page_config(page_title="Conclusão | Tech Challenge 3 | FIAP", layout='wi
 output_layout()
 
 with st.container():
-    st.header('Conclusão')
+    st.header(':orange[Conclusão]')

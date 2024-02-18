@@ -2,7 +2,7 @@ import streamlit as st
 from tabs.intro.apache_spark_tab import IntroApacheSparkTab
 from tabs.intro.google_bigquery_tab import IntroGoogleBigQueryTab
 from tabs.intro.google_cloud_storage_tab import IntroGoogleCloudStorageTab
-from tabs.intro.machine_learning import IntroMachineLearningTab
+from tabs.intro.machine_learning_tab import IntroMachineLearningTab
 from util.layout import output_layout
 from tabs.intro.pnad_tab import IntroPnadTab
 

@@ -26,6 +26,7 @@ class IntroGoogleBigQueryTab(TabInterface):
                 As tabelas com os dados originais foram geradas a partir de arquivos CSV que foram enviados ao Google Cloud Storage, um serviço de armazenamento em nuvem (muito parecido com o S3 da Amazon).
             ''')
 
+            st.markdown(':rainbow[TODO: atualizar print com as tabelas finais processadas e print com tabelas auxiliares de exemplo]')
             st.image('assets/img/bigquery-explorer-datasets.png', caption='Tabelas no Google BigQuery')
 
             with st.container():

@@ -15,4 +15,5 @@ with st.container():
     - Google Big Query. Google. Disponível em: https://cloud.google.com/bigquery
     - Google Cloud Storage. Google. Disponível em: https://cloud.google.com/storage
     - Streamlit Documentation. Streamlit . Disponível em: https://docs.streamlit.io/
+    https://inforiver.com/insights/11-pie-chart-alternatives-and-when-to-use-them/
     ''')

@@ -10,23 +10,27 @@ class IntroGoogleBigQueryTab(TabInterface):
         with self.tab:
             st.subheader(':blue[Google BigQuery]', divider='blue')
             st.markdown('''
-                O Google BigQuery é um serviço de armazenamento e análise de dados na nuvem oferecido pelo Google. Ele permite que as organizações armazenem, consultem e analisem grandes volumes de dados de maneira rápida e eficiente, usando a linguagem de consulta SQL padrão. O BigQuery é altamente escalável, oferecendo capacidade de processamento sob demanda e integração fácil com outras ferramentas e serviços do ecossistema do Google Cloud Platform (GCP).\n\n
-                O BigQuery é o serviço em nuvem escolhido para a realização deste trabalho.
+                O **:blue[Google BigQuery]** é um serviço de armazenamento e análise de dados na nuvem oferecido pelo Google. Ele permite que as organizações armazenem, consultem e analisem grandes volumes de dados de maneira rápida e eficiente, usando a linguagem de consulta SQL padrão. O **:blue[BigQuery]** é altamente escalável, oferecendo capacidade de processamento sob demanda e integração fácil com outras ferramentas e serviços do ecossistema do Google Cloud Platform (GCP).\n\n
+                O **:blue[BigQuery]** é o serviço em nuvem escolhido para a realização deste trabalho.
             ''')
 
             st.subheader(':blue[Tabelas]', divider='blue')
             st.markdown('''
-                Dentro do banco de dados no BigQuery, temos 5 tipos de tabela:
+                Dentro do banco de dados no **:blue[BigQuery]**, temos :blue[5] tipos de tabela:
                 1) Tabelas com os dados originais (mês a mês);
+                    * :blue[Exemplo: **pnad_covid_nov_2020**]
                 2) Tabelas processadas, contemplando exclusivamente as colunas/features que serão utilizadas durante o projeto (mês a mês);
-                3) Tabela de união das tabelas processadas mês a mês;
+                    * :blue[Exemplo: **pnad_covid_nov_2020_processado**]
+                3) Tabela de união das tabelas processadas mês a mês; 
+                    * :blue[Exemplo: **pnad_covid_2020**]
                 4) Tabela final de união com as colunas renomeadas para facilitar a o entendimento do schema;
+                    * :blue[Exemplo: **pnad_covid_2020_processado**]
                 5) Tabelas auxiliares com valores do domínio a respeito da pesquisa PNAD COVID19 (id de UF, por exemplo).
+                    * :blue[Exemplo: **pnad_covid_2020_aux_uf**]
                         
-                As tabelas com os dados originais foram geradas a partir de arquivos CSV que foram enviados ao Google Cloud Storage, um serviço de armazenamento em nuvem (muito parecido com o S3 da Amazon).
+                As tabelas com os dados originais foram geradas a partir de arquivos CSV que foram enviados ao **:blue[Google Cloud Storage]**, um serviço de armazenamento em nuvem (muito parecido com o S3 da Amazon).
             ''')
 
-            st.markdown(':rainbow[TODO: atualizar print com as tabelas finais processadas e print com tabelas auxiliares de exemplo]')
             st.image('assets/img/bigquery-explorer-datasets.png', caption='Tabelas no Google BigQuery')
 
             with st.container():
@@ -37,6 +41,8 @@ class IntroGoogleBigQueryTab(TabInterface):
 
                 with col2:
                     st.image('assets/img/bigquery-exemplo-tabela-processada.png', caption='Exemplo de colunas das tabelas finais (processadas)')
+
+            st.image('assets/img/bigquery-exemplo-select-pnad-processado.png', caption='Exemplo de dados armazenados na tabela agrupada e processada no Google BigQuery')
 
             st.divider()
 

@@ -78,7 +78,7 @@ class IntroPnadTab(TabInterface):
             st.markdown('''
                 **:blue[Perguntas de saúde, economia e comportamento durante a pandemia]**\n\n
                 As perguntas à seguir auxiliam na compreensão dos sintomas clínicos informados pelos entrevistados. Também ajudam a entender os seus hábitos durante a pandemia.\n\n
-                Vale notar que foram utilizadas **:blue[20 perguntas]** do total de disponíveis.
+                Vale notar que foram utilizadas **:blue[20 perguntas]** do total de disponíveis da PNAD.
                 | Identificador | Descrição da pergunta |
                 | - | - |
                 | B0011 | Na semana passada teve febre? |

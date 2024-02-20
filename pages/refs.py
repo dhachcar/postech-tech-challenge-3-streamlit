@@ -14,6 +14,7 @@ with st.container():
     - Apache Spark. Apache. Disponível em: https://spark.apache.org/
     - Google Big Query. Google. Disponível em: https://cloud.google.com/bigquery
     - Google Cloud Storage. Google. Disponível em: https://cloud.google.com/storage
+    - Google Dataproc Tutorial. Google. https://cloud.google.com/dataproc/docs/tutorials/bigquery-sparkml?hl=pt-br
     - Streamlit Documentation. Streamlit . Disponível em: https://docs.streamlit.io/
     https://inforiver.com/insights/11-pie-chart-alternatives-and-when-to-use-them/
     ''')

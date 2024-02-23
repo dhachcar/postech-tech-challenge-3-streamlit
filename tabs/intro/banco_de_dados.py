@@ -12,6 +12,8 @@ class IntroBancoDeDadosTab(TabInterface):
 
             st.image('assets/img/db-schema.png', caption='Diagrama de entidade e relacionamento (ER) do projeto')
 
+            st.image('assets/img/db-transform.png', caption='Etapas de transformação dos dados PNAD COVID19')
+
             st.markdown('''
                 O diagrama cima foi criado utilizando DBML, uma linguagem de marcação baseada em domínio que permite descrever e modelar esquemas de banco de dados de uma forma mais intuitiva e legível. Com o DBML, você pode definir tabelas, colunas, chaves primárias, chaves estrangeiras e outros elementos de um banco de dados de uma maneira que se assemelha mais à forma como você os desenharia em um diagrama. Essa abordagem simplifica o processo de design de banco de dados e facilita a comunicação entre equipes técnicas e não técnicas.
             ''')

@@ -10,6 +10,10 @@ class IntroBancoDeDadosTab(TabInterface):
         with self.tab:
             st.subheader(':blue[Banco de dados]', divider='blue')
 
+            st.image('assets/img/gcp-gerar-tabela-1.png', caption='Gerando uma tabela no BigQuery com o Google Cloud Storage - Etapa 1')
+            st.image('assets/img/gcp-gerar-tabela-2.png', caption='Gerando uma tabela no BigQuery com o Google Cloud Storage - Etapa 2')
+            st.image('assets/img/gcp-gerar-tabela-3.png', caption='Gerando uma tabela no BigQuery com o Google Cloud Storage - Etapa 3')
+
             st.image('assets/img/db-schema.png', caption='Diagrama de entidade e relacionamento (ER) do projeto')
 
             st.image('assets/img/db-transform.png', caption='Etapas de transformação dos dados PNAD COVID19')

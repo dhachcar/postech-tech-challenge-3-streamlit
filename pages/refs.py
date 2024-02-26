@@ -20,4 +20,6 @@ with st.container():
     - https://dbdiagram.io/d
     - https://dbml.dbdiagram.io/docs/
     - https://app.diagrams.net/
+    https://cloud.google.com/bigquery/docs/kmeans-tutorial?hl=pt-br
+                https://xgboost.readthedocs.io/en/stable/index.html
     ''')

@@ -12,3 +12,6 @@ class AnaliseClinicaTab(TabInterface):
             st.markdown('''
                 TESTE
             ''')
+
+            st.image('assets/img/bigquery-evolucao-casos-mes-a-mes.png', caption='TODO: Melhorar esta legenda')
+            st.image('assets/img/bigquery-evolucao-casos-mes-a-mes-por-uf.png', caption='TODO: Melhorar esta legenda')

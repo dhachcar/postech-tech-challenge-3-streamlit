@@ -1,7 +1,7 @@
 import streamlit as st
 from tabs.tab import TabInterface
 
-class AnaliseProcessamentoMachineLearningTab(TabInterface):
+class AnaliseProcessamentoMachineLearningEnsembleTab(TabInterface):
     def __init__(self, tab):
         self.tab = tab
         self.render()

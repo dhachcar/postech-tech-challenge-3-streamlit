@@ -10,5 +10,5 @@ class AnaliseProcessamentoMachineLearningEnsembleTab(TabInterface):
         with self.tab:
             st.subheader(':blue[Machine Learning]', divider='blue')
             st.markdown('''
-                TESTE
+                TESTE - exportar/importar o modelo aqui (via joblib)
             ''')

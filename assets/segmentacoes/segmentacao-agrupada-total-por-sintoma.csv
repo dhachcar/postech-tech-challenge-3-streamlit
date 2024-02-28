@@ -1,0 +1,14 @@
+sintoma,total,categoria,porcentagem
+Febre,9020,Respiratório,14.477865879105003
+Tosse,15373,Respiratório,24.674970305929183
+Dor de garganta,12557,Respiratório,20.155051202208597
+Difilcudade de respiração,4799,Respiratório,7.7028024782511
+Dor de cabeça,18960,Geral,38.59306301905227
+Dor no peito,3448,Geral,7.018400911903598
+Náusea,3958,Geral,8.0565054551376
+Nariz entupido,16140,Respiratório,25.906070431125805
+Fadiga,8208,Geral,16.707376648754273
+Dor nos olhos,3671,Geral,7.472317212180426
+Perda de olfato,4413,Respiratório,7.083239703380309
+Dor muscular,10883,Geral,22.15233675297183
+Diárreia,4301,Gastrointestinal,100.0

@@ -3,7 +3,6 @@ from tabs.tab import TabInterface
 import plotly.graph_objs as go
 import pandas as pd
 
-
 class AnaliseDemograficaTab(TabInterface):
     def __init__(self, tab):
         self.tab = tab

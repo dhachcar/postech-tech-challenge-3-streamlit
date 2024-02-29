@@ -1,4 +1,5 @@
 import streamlit as st
+from tabs.analise.correlacao_tab import AnaliseCorrelacaoTab
 from util.layout import output_layout
 from tabs.analise.analise_clinica_tab import AnaliseClinicaTab
 from tabs.analise.analise_demografica_tab import AnaliseDemograficaTab
@@ -12,10 +13,11 @@ output_layout()
 with st.container():
     st.header(':orange[Explorações, descobertas e análises]')
 
-    tab0, tab1, tab2, tab3, tab4 = st.tabs(tabs=['Análise demográfica', 'Análise clínica', 'Machine Learning: Ensemble', 'Machine Learning: Não-supervisionado', 'Machine Learning: Não-supervisionado no BigQuery'])
+    tab0, tab1, tab2, tab3, tab4, tab5 = st.tabs(tabs=['Análise demográfica', 'Análise clínica', 'Correlação', 'Machine Learning: Ensemble', 'Machine Learning: Não-supervisionado', 'Machine Learning: Não-supervisionado no BigQuery'])
 
     AnaliseDemograficaTab(tab0)
     AnaliseClinicaTab(tab1)
-    AnaliseProcessamentoMachineLearningEnsembleTab(tab2)
-    AnaliseProcessamentoMachineLearningUnsupervisedTab(tab3)
-    AnaliseProcessamentoMachineLearningUnsupervisedBigqueryTab(tab4)
+    AnaliseCorrelacaoTab(tab2)
+    AnaliseProcessamentoMachineLearningEnsembleTab(tab3)
+    AnaliseProcessamentoMachineLearningUnsupervisedTab(tab4)
+    AnaliseProcessamentoMachineLearningUnsupervisedBigqueryTab(tab5)

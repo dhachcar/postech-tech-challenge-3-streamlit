@@ -22,11 +22,11 @@ class AnaliseClinicaTab(TabInterface):
                 )
 
                 df_total_por_sintoma = pd.read_csv(
-                    "assets/segmentacoes/segmentacao-total-por-sintoma.csv"
+                    "assets/csv/segmentacao-total-por-sintoma.csv"
                 ).sort_values(by="total")
 
                 df_total_sintomas_categorizado = pd.read_csv(
-                    "assets/segmentacoes/segmentacao-agrupada-total-por-sintoma.csv"
+                    "assets/csv/segmentacao-agrupada-total-por-sintoma.csv"
                 )
 
                 # plot 1
@@ -74,7 +74,7 @@ class AnaliseClinicaTab(TabInterface):
                 )
 
                 df_escolaridade_covid = pd.read_csv(
-                    "assets/segmentacoes/segmentacao-escolaridade-x-casos-positivos.csv"
+                    "assets/csv/segmentacao-escolaridade-x-casos-positivos.csv"
                 )
 
                 col1, col2 = st.columns([1, 1])
@@ -108,7 +108,7 @@ class AnaliseClinicaTab(TabInterface):
                 )
 
                 df_plano_saude_covid = pd.read_csv(
-                    "assets/segmentacoes/segmentacao-plano-saude-x-casos-positivos.csv"
+                    "assets/csv/segmentacao-plano-saude-x-casos-positivos.csv"
                 )
 
                 col1, col2 = st.columns([1, 1])
@@ -151,7 +151,7 @@ class AnaliseClinicaTab(TabInterface):
                 )
 
                 df_casos_positivos_mes_a_mes = pd.read_csv(
-                    "assets/segmentacoes/evolucao-casos-positivos-mes-a-mes.csv"
+                    "assets/csv/evolucao-casos-positivos-mes-a-mes.csv"
                 )
 
                 fig = go.Figure(
@@ -189,7 +189,7 @@ class AnaliseClinicaTab(TabInterface):
                 )
 
                 df_casos_positivos_mes_a_mes_por_uf = pd.read_csv(
-                    "assets/segmentacoes/evolucao-casos-positivos-mes-a-mes-por-uf.csv"
+                    "assets/csv/evolucao-casos-positivos-mes-a-mes-por-uf.csv"
                 )
 
                 # quantidade de cores únicas

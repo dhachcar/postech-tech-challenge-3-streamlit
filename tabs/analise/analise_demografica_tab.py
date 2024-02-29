@@ -20,7 +20,7 @@ class AnaliseDemograficaTab(TabInterface):
                 )
 
                 sexo_cores = ["#983D3D", "#232066"]
-                df_pnad_sexo = pd.read_csv("assets/segmentacoes/segmentacao-sexo.csv")
+                df_pnad_sexo = pd.read_csv("assets/csv/segmentacao-sexo.csv")
 
                 col1, col2 = st.columns([1, 1])
 
@@ -52,7 +52,7 @@ class AnaliseDemograficaTab(TabInterface):
                 """
                 )
 
-                df_pnad_uf = pd.read_csv("assets/segmentacoes/segmentacao-uf.csv")
+                df_pnad_uf = pd.read_csv("assets/csv/segmentacao-uf.csv")
 
                 fig = go.Figure()
                 fig.add_trace(
@@ -70,7 +70,7 @@ class AnaliseDemograficaTab(TabInterface):
                 )
 
                 df_pnad_regiao_metropolitana = pd.read_csv(
-                    "assets/segmentacoes/segmentacao-regiao-metropolitana.csv"
+                    "assets/csv/segmentacao-regiao-metropolitana.csv"
                 )
 
                 fig = go.Figure()
@@ -95,7 +95,7 @@ class AnaliseDemograficaTab(TabInterface):
                 )
 
                 df_pnad_escolaridade = pd.read_csv(
-                    "assets/segmentacoes/segmentacao-escolaridade.csv"
+                    "assets/csv/segmentacao-escolaridade.csv"
                 )
 
                 col1, _, col2 = st.columns([0.4, 0.1, 0.5])
@@ -127,7 +127,7 @@ class AnaliseDemograficaTab(TabInterface):
                 """
                 )
 
-                df_pnad_idade = pd.read_csv("assets/segmentacoes/segmentacao-idade.csv")
+                df_pnad_idade = pd.read_csv("assets/csv/segmentacao-idade.csv")
                 faixas_etarias = df_pnad_idade.nome.values.astype(str)
                 populacao = df_pnad_idade.total.values
 
@@ -151,7 +151,7 @@ class AnaliseDemograficaTab(TabInterface):
                 )
 
                 df_pnad_plano_saude = pd.read_csv(
-                    "assets/segmentacoes/segmentacao-plano-saude.csv"
+                    "assets/csv/segmentacao-plano-saude.csv"
                 )
 
                 col1, _, col2 = st.columns([0.4, 0.1, 0.5])

@@ -85,10 +85,13 @@ class AnaliseClinicaTab(TabInterface):
                         go.Pie(
                             labels=df_escolaridade_covid.nome,
                             values=df_escolaridade_covid.contagem,
-                            hole=.65
+                            hole=0.65,
                         )
-                        )
-                    fig.update_layout(title='Segmentação de plano de saúde X covid19 confirmada', width=500)
+                    )
+                    fig.update_layout(
+                        title="Segmentação de plano de saúde X covid19 confirmada",
+                        width=500,
+                    )
                     st.plotly_chart(fig)
 
                 with col2:
@@ -139,14 +142,88 @@ class AnaliseClinicaTab(TabInterface):
                 )
 
                 st.markdown(
-                    "Aqui foram utilizados queries que rodaram diretamente no BigQuery e foram consumidos através de um id de job"
+                    "A query foi executada dentro do BigQuery, o que criou um job id. Posteriormente, este job id foi consumido dentro do Colabs."
                 )
 
                 st.image(
                     "assets/img/bigquery-evolucao-casos-mes-a-mes.png",
-                    caption="TODO: Melhorar esta legenda",
+                    caption="Query utilizada pelo job, dentro do BigQuery",
+                )
+
+                df_casos_positivos_mes_a_mes = pd.read_csv(
+                    "assets/segmentacoes/evolucao-casos-positivos-mes-a-mes.csv"
+                )
+
+                fig = go.Figure(
+                    go.Bar(
+                        x=df_casos_positivos_mes_a_mes.mes_label,
+                        y=df_casos_positivos_mes_a_mes.total,
+                        name="Meses",
+                    )
+                )
+                fig.add_trace(
+                    go.Scatter(
+                        x=df_casos_positivos_mes_a_mes.mes_label,
+                        y=df_casos_positivos_mes_a_mes.total,
+                        mode="lines",
+                        name="Tendência",
+                    )
+                )
+                fig.update_layout(
+                    title="Evolução dos casos positivos nos últimos 3 meses",
+                    xaxis_title="Mês",
+                    yaxis_title="Número de casos positivos",
+                )
+
+                st.plotly_chart(fig)
+
+            with st.container():
+                st.markdown(
+                    """
+                    **:blue[Evolução dos casos positivos (mês a mês e UF)]**
+                """
                 )
                 st.image(
                     "assets/img/bigquery-evolucao-casos-mes-a-mes-por-uf.png",
-                    caption="TODO: Melhorar esta legenda",
+                    caption="Query utilizada pelo job, dentro do BigQuery",
                 )
+
+                df_casos_positivos_mes_a_mes_por_uf = pd.read_csv(
+                    "assets/segmentacoes/evolucao-casos-positivos-mes-a-mes-por-uf.csv"
+                )
+
+                # quantidade de cores únicas
+                num_colors = len(df_casos_positivos_mes_a_mes_por_uf["estado"].unique())
+                # cor final
+                colors = [
+                    f"hsl({h}, 50%, 50%)" for h in range(0, 320, int(320 / num_colors))
+                ]
+
+                # plottando o gráfico
+                fig = go.Figure()
+
+                for i, state in enumerate(
+                    df_casos_positivos_mes_a_mes_por_uf["estado"].unique()
+                ):
+                    state_data = df_casos_positivos_mes_a_mes_por_uf[
+                        df_casos_positivos_mes_a_mes_por_uf["estado"] == state
+                    ]
+                    fig.add_trace(
+                        go.Bar(
+                            x=state_data["mes"],
+                            y=state_data["total_casos_confirmados"],
+                            name=state,
+                            marker_color=colors[i],
+                        )
+                    )
+
+                fig.update_layout(
+                    title="Evolução dos casos positivos nos últimos 3 meses, agrupado por UF",
+                    xaxis=dict(title="Mês"),
+                    yaxis=dict(title="Total de casos confirmados"),
+                    barmode="group",
+                    width=1000,
+                    height=600,
+                )
+
+                st.plotly_chart(fig)

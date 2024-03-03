@@ -3,43 +3,28 @@ from st_pages import show_pages, Page
 
 
 def output_layout():
-    # add_page_title()
-    # show_pages_from_config()
-
-# [[pages]]
-# path = "main.py"
-# name = "Tech Challenge 3"
-# icon = ":house:"
-
-# [[pages]]
-# path = "pages/intro.py"
-# name = "Introdução"
-# icon = ":books:"
-
-# [[pages]]
-# path = "pages/analise.py"
-# name = "Explorações, descobertas e análises"
-# icon = ":memo:"
-
-# [[pages]]
-# path = "pages/conclusao.py"
-# name = "Conclusão"
-# icon = ":sparkles:"
-
-# [[pages]]
-# path = "pages/refs.py"
-# name = "Referências"
-# icon = ":globe_with_meridians:"
-# is_section = false
-
-
     show_pages(
         [
             Page("./main.py", "Tech Challenge 3", ":house:", use_relative_hash=True),
             Page("./pages/intro.py", "Introdução", ":books:", use_relative_hash=True),
-            Page("./pages/analise.py", "Explorações, descobertas e análises", ":memo:", use_relative_hash=True),
-            Page("./pages/conclusao.py", "Conclusão", ":sparkles:", use_relative_hash=True),
-            Page("./pages/refs.py", "Referências", ":globe_with_meridians:", use_relative_hash=True),
+            Page(
+                "./pages/analise.py",
+                "Explorações, descobertas e análises",
+                ":memo:",
+                use_relative_hash=True,
+            ),
+            Page(
+                "./pages/conclusao.py",
+                "Conclusão",
+                ":sparkles:",
+                use_relative_hash=True,
+            ),
+            Page(
+                "./pages/refs.py",
+                "Referências",
+                ":globe_with_meridians:",
+                use_relative_hash=True,
+            ),
         ]
     )
 

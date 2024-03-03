@@ -19,7 +19,7 @@ class IntroMachineLearningTab(TabInterface):
 
             st.markdown('''
             **:blue[Algoritmo ensemble: XGBoost]**\n\n
-            Para a tarefa de prever se um novo entrevistado PNAD 2020 teria seu caso confirmado, foi escolhido o algoritmo XGBoost (Extreme Gradient Boosting). O XGBoost é uma escolha comum em problemas de classificação, conhecido por sua eficácia em lidar com conjuntos de dados complexos e grandes, e por sua capacidade de lidar com sobreajuste. Este modelo será treinado com base em dados históricos, explorando padrões e relações nos dados para fazer previsões precisas sobre a confirmação de casos.
+            Para a tarefa de prever se um novo entrevistado PNAD 2020 teria seu caso confirmado, foi escolhido o algoritmo XGBoost (Extreme Gradient Boosting). O XGBoost é uma escolha comum em problemas de classificação, conhecido por sua eficácia em lidar com conjuntos de dados complexos e grandes, e por sua capacidade de lidar com sobreajuste. Este modelo será treinado com base em dados históricos, explorando padrões e relações nos dados para fazer previsões sobre a confirmação de casos.
             ''')
 
             st.markdown('''
@@ -29,5 +29,6 @@ class IntroMachineLearningTab(TabInterface):
 
             st.markdown('''
             **:blue[Algoritmos não supervisionados no Google BigQuery: KMeans]**\n\n
-            Ainda na questão de clusterização dos dados, foram realizados testes utilizando o algoritmo KMeans diretamente no BigQuery, uma plataforma de análise de dados e data warehousing. A escolha de utilizar o BigQuery para executar esses testes se deve à sua capacidade de lidar com grandes volumes de dados de forma eficiente e escalável, o que é crucial em projetos que lidam com conjuntos de dados extensos, como este relacionado à COVID-19 da PNAD 2020.
+            Ainda na questão de clusterização dos dados, foram realizados testes utilizando o algoritmo KMeans diretamente no BigQuery, uma plataforma de análise de dados e data warehousing. A escolha de utilizar o BigQuery para executar esses testes se deve à sua capacidade de lidar com grandes volumes de dados de forma eficiente e escalável, o que é crucial em projetos que lidam com conjuntos de dados extensos, como este relacionado à COVID-19 da PNAD 2020.\n
+            Outro ponto interessante é que esta abordagem permite realizar uma comparação entre a aplicação do KMeans de formas distintas.
             ''')

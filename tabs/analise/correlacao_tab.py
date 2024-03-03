@@ -40,6 +40,7 @@ class AnaliseCorrelacaoTab(TabInterface):
 
             st.markdown(
                 """
-                A matriz de correlação será utilizada para feature engineering dos modelos de machine learning nas próximas seções. Ela identifica e mensura os relacionamentos entre as colunas do conjunto de dados (principalmente entre os sintomas da COVID-19), o que possibilita criarmos modelos mais assertivos.
+                A matriz de correlação será utilizada para feature engineering dos modelos de machine learning nas próximas seções. Ela identifica e mensura os relacionamentos entre as colunas do conjunto de dados (principalmente entre os sintomas da COVID-19), o que possibilita criarmos modelos mais assertivos.\n
+                Portanto, analisando o seu resultado, é possível confirmar que :blue[todos os sintomas estão altamente correlacionados] uns aos outros, o que indica que são colunas importantes para considerar durante o treinamento dos modelos.
             """
             )

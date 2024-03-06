@@ -245,9 +245,3 @@ class AnaliseProcessamentoMachineLearningEnsembleTab(TabInterface):
                     time.sleep(3)
                     predict()
                     st.success("Processamento concluído!")
-
-            # st.write(f"You selected option {option} called {lista_respostas_sintoma[option]}")
-
-            # TODO: explicar sobre os 2 modelos
-            # TODO: explicar que a acurácia deles se mantém apos a exportação/importação
-            # TODO: colocar inputs para teste dos modelos de forma a dizer se o registro tem covid ou nao

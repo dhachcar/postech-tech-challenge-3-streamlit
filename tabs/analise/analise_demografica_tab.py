@@ -15,6 +15,34 @@ class AnaliseDemograficaTab(TabInterface):
             with st.container():
                 st.markdown(
                     """
+                    **:blue[Indicadores gerais]**
+                """
+                )
+
+                indicadores_gerais = pd.read_csv("assets/csv/indicadores.csv")
+
+                with st.container():
+                    _, col1, col2, _ = st.columns([3, 2, 2, 3])
+
+                    with col1:
+                        st.metric(
+                            label="Total de entrevistados",
+                            value='{:.2f}'.format(indicadores_gerais.total_entrevistados.values[0]),
+                            delta='{:.2f}%'.format(100),
+                            delta_color="off",
+                        )
+
+                    with col2:
+                        st.metric(
+                            label="Média de idade",
+                            value='{:.0f} anos'.format(indicadores_gerais.idade_media.values[0].round(0)),
+                            delta='{:.2f}%'.format(100),
+                            delta_color="off",
+                        )
+
+            with st.container():
+                st.markdown(
+                    """
                     **:blue[Por sexo]**
                 """
                 )

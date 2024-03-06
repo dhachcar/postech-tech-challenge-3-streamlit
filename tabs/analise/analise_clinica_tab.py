@@ -17,6 +17,43 @@ class AnaliseClinicaTab(TabInterface):
             with st.container():
                 st.markdown(
                     """
+                    **:blue[Indicadores gerais]**
+                """
+                )
+
+                indicadores_gerais = pd.read_csv("assets/csv/indicadores.csv")
+
+                with st.container():
+                    _, col1, _ = st.columns([4, 2, 4])
+
+                    with col1:
+                        st.metric(
+                            label="Total de entrevistados",
+                            value='{:.2f}'.format(indicadores_gerais.total_entrevistados.values[0]),
+                            delta='{:.2f}%'.format(100),
+                            delta_color="off",
+                        )
+
+                with st.container():
+                    _, col1, col2, _ = st.columns([2, 1, 1, 2])
+
+                    with col1:
+                        st.metric(
+                            label="Casos positivos",
+                            value='{:.2f}'.format(indicadores_gerais.total_casos_positivos.values[0]),
+                            delta='{:.2f}%'.format(indicadores_gerais.porcentagem_total_casos_positivos.values[0].round(2))
+                        )
+
+                    with col2:
+                        st.metric(
+                            label="Casos negativos",
+                            value='{:.2f}'.format(indicadores_gerais.total_casos_negativos.values[0]),
+                            delta='{:.2f}%'.format(indicadores_gerais.porcentagem_total_casos_negativos.values[0].round(2))
+                        )
+
+            with st.container():
+                st.markdown(
+                    """
                     **:blue[Por sintoma]**
                 """
                 )

@@ -8,16 +8,16 @@ class IntroPnadTab(TabInterface):
     
     def render(self):
         with self.tab:
-            st.subheader(':blue[PNAD COVID19]', divider='blue')
+            st.subheader(':blue[PNAD COVID-19]', divider='blue')
             st.markdown('''
-            A PNAD COVID19, ou Pesquisa Nacional por Amostra de Domicílios sobre os efeitos da pandemia de COVID-19 no Brasil, foi uma iniciativa conduzida pelo Instituto Brasileiro de Geografia e Estatística (IBGE) para compreender os impactos socioeconômicos da crise sanitária no país. Lançada em 04 maio de 2020, a pesquisa teve como objetivo principal coletar dados sobre diversos aspectos da vida da população brasileira durante a pandemia, incluindo o mercado de trabalho, acesso a serviços de saúde, educação e outras áreas afetadas.\n\n
-            Utilizando entrevistas telefônicas com amostras representativas da população, a PNAD COVID19 buscou captar informações sobre mudanças no emprego e renda, acesso a benefícios governamentais, adaptações no ensino remoto, impactos na saúde mental, entre outros aspectos relevantes. Esses dados foram cruciais para entender como a pandemia afetou diferentes grupos sociais e regiões do país, permitindo a elaboração de políticas e ações mais direcionadas para enfrentar os desafios socioeconômicos gerados pela crise.\n\n
-            Ao longo de sua realização, a PNAD COVID19 proporcionou insights valiosos para governos, instituições de pesquisa, organizações da sociedade civil e demais interessados, contribuindo para uma compreensão mais completa dos efeitos da pandemia no Brasil e fornecendo subsídios para a tomada de decisões informadas visando mitigar seus impactos e promover a recuperação socioeconômica do país.
+            A PNAD COVID-19, ou Pesquisa Nacional por Amostra de Domicílios sobre os efeitos da pandemia de COVID-19 no Brasil, foi uma iniciativa conduzida pelo Instituto Brasileiro de Geografia e Estatística (IBGE) para compreender os impactos socioeconômicos da crise sanitária no país. Lançada em 04 maio de 2020, a pesquisa teve como objetivo principal coletar dados sobre diversos aspectos da vida da população brasileira durante a pandemia, incluindo o mercado de trabalho, acesso a serviços de saúde, educação e outras áreas afetadas.\n\n
+            Utilizando entrevistas telefônicas com amostras representativas da população, a PNAD COVID-19 buscou captar informações sobre mudanças no emprego e renda, acesso a benefícios governamentais, adaptações no ensino remoto, impactos na saúde mental, entre outros aspectos relevantes. Esses dados foram cruciais para entender como a pandemia afetou diferentes grupos sociais e regiões do país, permitindo a elaboração de políticas e ações mais direcionadas para enfrentar os desafios socioeconômicos gerados pela crise.\n\n
+            Ao longo de sua realização, a PNAD COVID-19 proporcionou insights valiosos para governos, instituições de pesquisa, organizações da sociedade civil e demais interessados, contribuindo para uma compreensão mais completa dos efeitos da pandemia no Brasil e fornecendo subsídios para a tomada de decisões informadas visando mitigar seus impactos e promover a recuperação socioeconômica do país.
             ''')
 
             st.subheader(':blue[Bases de dados utilizadas]', divider='blue')
             st.markdown('''
-                Durante este projeto, são utilizadas as bases de dados dos últimos 3 meses da PNAD COVID19 (Setembro, Outubro e Novembro).\n\n
+                Durante este projeto, são utilizadas as bases de dados dos últimos 3 meses da PNAD COVID-19 (Setembro, Outubro e Novembro).\n\n
                 Vale notar que segundo o IBGE, a amostra da pesquisa é fixa, ou seja, os domicílios entrevistados no primeiro mês de coleta de dados permanecerão na amostra nos meses subsequentes, até o fim da pesquisa e assim subsequentemente.\n\n
                 Para a visualização das bases de dados, utilize o link abaixo:
             ''')
@@ -25,7 +25,7 @@ class IntroPnadTab(TabInterface):
 
             st.subheader(':blue[Dicionários das bases de dados]', divider='blue')
             st.markdown('''
-                Para interpretarmos os dados das PNAD COVID19, precisamos utilizar os dicionários de dados, que mudam conforme o mês de pesquisa.
+                Para interpretarmos os dados das PNAD COVID-19, precisamos utilizar os dicionários de dados, que mudam conforme o mês de pesquisa.
                 - Os dicionários de Setembro e Outubro são idênticos;
                 - Já o dicionário de Novembro tem alguma pequenas modificações, mas que não deve impactar em nossas análises;
                         

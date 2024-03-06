@@ -106,7 +106,7 @@ class AnaliseClinicaTab(TabInterface):
             with st.container():
                 st.markdown(
                     """
-                    **:blue[Segmentação de escolaridade X covid19 positivo]**
+                    **:blue[Segmentação de escolaridade X COVID-19 positivo]**
                 """
                 )
 
@@ -126,7 +126,7 @@ class AnaliseClinicaTab(TabInterface):
                         )
                     )
                     fig.update_layout(
-                        title="Segmentação de plano de saúde X covid19 confirmada",
+                        title="Segmentação de plano de saúde X COVID-19 positivo",
                         width=500,
                     )
                     st.plotly_chart(fig)
@@ -140,7 +140,7 @@ class AnaliseClinicaTab(TabInterface):
             with st.container():
                 st.markdown(
                     """
-                    **:blue[Segmentação de plano de saúde X covid19 positivo]**
+                    **:blue[Segmentação de plano de saúde X COVID-19 positivo]**
                 """
                 )
 
@@ -160,7 +160,7 @@ class AnaliseClinicaTab(TabInterface):
                         )
                     )
                     fig.update_layout(
-                        title="Segmentação de plano de saúde X covid19 confirmada",
+                        title="Segmentação de plano de saúde X COVID-19 positivo",
                         width=500,
                     )
                     st.plotly_chart(fig)

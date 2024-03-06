@@ -1,28 +1,63 @@
 import streamlit as st
 from tabs.tab import TabInterface
 
+
 class IntroBancoDeDadosTab(TabInterface):
     def __init__(self, tab):
         self.tab = tab
         self.render()
-    
+
     def render(self):
         with self.tab:
-            st.subheader(':blue[Banco de dados]', divider='blue')
+            st.subheader(":blue[Banco de dados]", divider="blue")
 
-            st.image('assets/img/gcp-gerar-tabela-1.png', caption='Gerando uma tabela no BigQuery com o Google Cloud Storage - Etapa 1')
-            st.image('assets/img/gcp-gerar-tabela-2.png', caption='Gerando uma tabela no BigQuery com o Google Cloud Storage - Etapa 2')
-            st.image('assets/img/gcp-gerar-tabela-3.png', caption='Gerando uma tabela no BigQuery com o Google Cloud Storage - Etapa 3')
+            st.markdown(
+                """
+                Conforme apresentado anteriormente, para criar as tabelas da PNAD COVID-19 dentro do :blue[BigQuery], foram utilizados bases .csv armazenadas no :blue[Google Cloud Storage].\n
+                O passo-a-passo para criação, resume-se basicamente em:
+                1) Iniciar a criação de uma nova tabela;
+                2) Definir a origem da tabela como o :blue[Google Cloud Storage];
+                3) Escolher o bucket de onde serão puxados os arquivos;
+                4) Escolher a base .csv desejada;
+                5) Definir o destino da base .csv, escolhendo o projeto, schema e nome de tabela onde os dados serão armazenados;
+                6) Finalizar o processo, clicando em :blue[Criar tabela].
+            """
+            )
 
-            st.image('assets/img/db-schema.png', caption='Diagrama de entidade e relacionamento (ER) do projeto')
+            st.image(
+                "assets/img/gcp-gerar-tabela-1.png",
+                caption="Gerando uma tabela no BigQuery com o Google Cloud Storage - Etapa 1",
+            )
+            st.image(
+                "assets/img/gcp-gerar-tabela-2.png",
+                caption="Gerando uma tabela no BigQuery com o Google Cloud Storage - Etapa 2",
+            )
+            st.image(
+                "assets/img/gcp-gerar-tabela-3.png",
+                caption="Gerando uma tabela no BigQuery com o Google Cloud Storage - Etapas 3, 4, 5 e 6",
+            )
 
-            st.image('assets/img/db-transform.png', caption='Etapas de transformação dos dados PNAD COVID19')
+            st.markdown(
+                """  
+                Um diagrama de Entidade e Relacionamento (DER) é essencial para visualizar de forma clara os relacionamentos entre os diferentes domínios de dados em um sistema. Ele mapeia entidades, seus atributos e as associações entre elas, permitindo uma compreensão abrangente dos fluxos de informações e dependências no sistema.\n
+                Desta maneira, de forma a facilitar o processo de entendimento, foi criado o diagrama abaixo. Vale notar que a sua criação foi feita com a ferramenta :blue[DBDiagram], utilizando a linguagem :blue[DBML].
+            """
+            )
 
-            st.markdown('''
-                O diagrama cima foi criado utilizando DBML, uma linguagem de marcação baseada em domínio que permite descrever e modelar esquemas de banco de dados de uma forma mais intuitiva e legível. Com o DBML, você pode definir tabelas, colunas, chaves primárias, chaves estrangeiras e outros elementos de um banco de dados de uma maneira que se assemelha mais à forma como você os desenharia em um diagrama. Essa abordagem simplifica o processo de design de banco de dados e facilita a comunicação entre equipes técnicas e não técnicas.
-            ''')
+            st.image(
+                "assets/img/db-schema.png",
+                caption="Diagrama de entidade e relacionamento (DER) do projeto",
+            )
 
-            st.code('''
+            st.markdown(
+                """
+                Sobre o DBML, ele é uma linguagem de marcação baseada em domínio que permite descrever e modelar esquemas de banco de dados de uma forma mais intuitiva e legível. Com o DBML, é possível definir tabelas, colunas, chaves primárias, chaves estrangeiras e outros elementos de um banco de dados de uma maneira que se assemelha mais à forma como você os desenharia em um diagrama. Essa abordagem simplifica o processo de design de banco de dados e facilita a comunicação entre equipes técnicas e não técnicas.\n
+                À seguir, o script utilizado para criação do DER apresentado anteriormente:
+            """
+            )
+
+            st.code(
+                """
 // Docs: https://dbml.dbdiagram.io/docs
 
 // tabelas auxiliares
@@ -147,4 +182,5 @@ Ref: pnad_covid_2020_processado.sintoma_dor_olhos_b00110 > pnad_covid_2020_aux_r
 Ref: pnad_covid_2020_processado.sintoma_perda_olfato_b00111 > pnad_covid_2020_aux_resposta.id
 Ref: pnad_covid_2020_processado.sintoma_dor_muscular_b00112 > pnad_covid_2020_aux_resposta.id
 Ref: pnad_covid_2020_processado.sintoma_diarreia_b00113 > pnad_covid_2020_aux_resposta.id
-            ''')
+            """
+            )

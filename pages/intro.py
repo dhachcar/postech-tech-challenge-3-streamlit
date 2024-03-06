@@ -14,12 +14,12 @@ output_layout()
 with st.container():
     st.header(':orange[Introdução]')
 
-    tab0, tab1, tab2, tab3, tab4, tab5, tab6 = st.tabs(tabs=['PNAD COVID19', 'Arquitetura', 'Banco de dados', 'Apache Spark', 'Google BigQuery', 'Google Cloud Storage', 'Machine Learning'])
+    tab0, tab1, tab2, tab3, tab4, tab5, tab6 = st.tabs(tabs=['PNAD COVID-19', 'Arquitetura', 'Google Cloud Storage', 'Google BigQuery', 'Banco de dados', 'Apache Spark',  'Machine Learning'])
 
     IntroPnadTab(tab0)
     IntroArquiteturaTab(tab1)
-    IntroBancoDeDadosTab(tab2)
-    IntroApacheSparkTab(tab3)
-    IntroGoogleBigQueryTab(tab4)
-    IntroGoogleCloudStorageTab(tab5)
+    IntroGoogleCloudStorageTab(tab2)
+    IntroGoogleBigQueryTab(tab3)
+    IntroBancoDeDadosTab(tab4)
+    IntroApacheSparkTab(tab5)
     IntroMachineLearningTab(tab6)

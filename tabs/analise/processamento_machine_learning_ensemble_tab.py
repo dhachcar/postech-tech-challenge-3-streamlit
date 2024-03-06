@@ -240,7 +240,7 @@ class AnaliseProcessamentoMachineLearningEnsembleTab(TabInterface):
                             label="XGB 2 (parâmetros sugeridos)", value=xgb2_resultado
                         )
 
-            if st.button("Entrevistado com COVID19?"):
+            if st.button("Entrevistado com COVID-19?"):
                 with st.spinner('Processando...'):
                     time.sleep(3)
                     predict()

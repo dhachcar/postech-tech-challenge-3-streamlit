@@ -26,4 +26,5 @@ with st.container():
     - https://scikit-learn.org/stable/modules/clustering.html#silhouette-coefficient
     - https://scikit-learn.org/stable/modules/clustering.html#davies-bouldin-index
     - https://scikit-learn.org/stable/modules/clustering.html#calinski-harabasz-index
+    - https://repositorio.ipea.gov.br/bitstream/11058/10472/6/CC_50_mt_trabalho_remoto_e_a_pandemia.pdf
     ''')

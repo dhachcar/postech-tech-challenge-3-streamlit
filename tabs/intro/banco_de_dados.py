@@ -37,6 +37,8 @@ class IntroBancoDeDadosTab(TabInterface):
                 caption="Gerando uma tabela no BigQuery com o Google Cloud Storage - Etapas 3, 4, 5 e 6",
             )
 
+            st.subheader(":blue[Diagrama de Entidade e Relacionamento (DER)]", divider="blue")
+
             st.markdown(
                 """  
                 Um diagrama de Entidade e Relacionamento (DER) é essencial para visualizar de forma clara os relacionamentos entre os diferentes domínios de dados em um sistema. Ele mapeia entidades, seus atributos e as associações entre elas, permitindo uma compreensão abrangente dos fluxos de informações e dependências no sistema.\n
@@ -51,7 +53,7 @@ class IntroBancoDeDadosTab(TabInterface):
 
             st.markdown(
                 """
-                Sobre o DBML, ele é uma linguagem de marcação baseada em domínio que permite descrever e modelar esquemas de banco de dados de uma forma mais intuitiva e legível. Com o DBML, é possível definir tabelas, colunas, chaves primárias, chaves estrangeiras e outros elementos de um banco de dados de uma maneira que se assemelha mais à forma como você os desenharia em um diagrama. Essa abordagem simplifica o processo de design de banco de dados e facilita a comunicação entre equipes técnicas e não técnicas.\n
+                Sobre o :blue[DBML], ele é uma linguagem de marcação baseada em domínio que permite descrever e modelar esquemas de banco de dados de uma forma mais intuitiva e legível. Com o :blue[DBML], é possível definir tabelas, colunas, chaves primárias, chaves estrangeiras e outros elementos de um banco de dados de uma maneira que se assemelha mais à forma como você os desenharia em um diagrama. Essa abordagem simplifica o processo de design de banco de dados e facilita a comunicação entre equipes técnicas e não técnicas.\n
                 À seguir, o script utilizado para criação do DER apresentado anteriormente:
             """
             )

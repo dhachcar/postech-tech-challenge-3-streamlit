@@ -17,7 +17,12 @@ class AnaliseClinicaTab(TabInterface):
 
             st.markdown(
                 """
-                Ao longo desta seção, analisamos como os entrevistados estão distribuídos em relação ao conjunto total de dados estudados, agora com foco no quésito **:blue[clínico]**.
+                Ao longo desta seção, analisamos como os entrevistados estão distribuídos em relação ao conjunto total de dados estudados, agora com foco no quésito **:blue[clínico]**.\n
+                Logo na primeira parte, são apresentados os indicadores gerais da análise clínica. Tais indicadores foram divididos em 2 categorias:
+                * A primeira categoria considera todos os entrevistados, independente do resultado de seu exame
+                * A segunda categoria considera todos os entrevistados que tiveram algum resultado em seu exame
+
+                Isto foi feito para melhorar a visualização das porcentagens de entrevistados infectados e não infectados.
             """
             )
 
@@ -32,50 +37,93 @@ class AnaliseClinicaTab(TabInterface):
                 total_positivos = indicadores_gerais.total_casos_positivos.values[0]
 
                 with st.container():
-                    _, col1, _ = st.columns([4, 2, 4])
+                    col1_raiz, col2_raiz = st.columns([1, 1])
 
-                    with col1:
-                        st.metric(
-                            label="Total de entrevistados",
-                            value=format_number(
-                                indicadores_gerais.total_entrevistados.values[0]
-                            ),
-                            delta=format_number(100, "%0.2f") + "%",
-                            delta_color="off",
-                        )
+                    with col1_raiz:
+                        st.subheader(':blue[Todos independente do resultado]', divider="blue")
 
-                with st.container():
-                    _, col1, col2, _ = st.columns([3, 2, 2, 3])
-
-                    with col1:
-                        st.metric(
-                            label="Casos COVID-19 positivos",
-                            value=format_number(
-                                indicadores_gerais.total_casos_positivos.values[0]
-                            ),
-                            delta=format_number(
-                                indicadores_gerais.porcentagem_total_casos_positivos.values[
-                                    0
-                                ],
-                                "%0.2f",
+                        with st.container():
+                            st.metric(
+                                label="Total de entrevistados",
+                                value=format_number(
+                                    indicadores_gerais.total_entrevistados.values
+                                ),
+                                delta=format_number(100, "%0.2f") + "%",
+                                delta_color="off",
                             )
-                            + "%",
-                        )
 
-                    with col2:
-                        st.metric(
-                            label="Casos COVID-19 negativos",
-                            value=format_number(
-                                indicadores_gerais.total_casos_negativos.values[0]
-                            ),
-                            delta=format_number(
-                                indicadores_gerais.porcentagem_total_casos_negativos.values[
-                                    0
-                                ],
-                                "%0.2f",
+                        with st.container():
+                            col1, col2, _ = st.columns([1, 1, 1])
+
+                            with col1:
+                                st.metric(
+                                    label="Casos COVID-19 positivos",
+                                    value=format_number(
+                                        indicadores_gerais.total_casos_positivos.values[
+                                            0
+                                        ]
+                                    ),
+                                    delta=format_number(
+                                        indicadores_gerais.porcentagem_total_casos_positivos.values,
+                                        "%0.2f",
+                                    )
+                                    + "%",
+                                )
+
+                            with col2:
+                                st.metric(
+                                    label="Casos COVID-19 negativos",
+                                    value=format_number(
+                                        indicadores_gerais.total_casos_negativos.values
+                                    ),
+                                    delta=format_number(
+                                        indicadores_gerais.porcentagem_total_casos_negativos.values,
+                                        "%0.2f",
+                                    )
+                                    + "%",
+                                )
+
+                    with col2_raiz:
+                        st.subheader(':blue[Todos com resultado não ignorado]', divider="blue")
+
+                        with st.container():
+                            st.metric(
+                                label="Total de entrevistados",
+                                value=format_number(
+                                    indicadores_gerais.total_casos_negativos_nao_ignorados.values + indicadores_gerais.total_casos_positivos_nao_ignorados.values
+                                ),
+                                delta=format_number(100, "%0.2f") + "%",
+                                delta_color="off",
                             )
-                            + "%",
-                        )
+
+                        with st.container():
+                            col1, col2, _ = st.columns([1, 1, 1])
+
+                            with col1:
+                                st.metric(
+                                    label="Casos COVID-19 positivos",
+                                    value=format_number(
+                                        indicadores_gerais.total_casos_positivos_nao_ignorados.values
+                                    ),
+                                    delta=format_number(
+                                        indicadores_gerais.porcentagem_total_casos_positivos_nao_ignorados.values,
+                                        "%0.2f",
+                                    )
+                                    + "%",
+                                )
+
+                            with col2:
+                                st.metric(
+                                    label="Casos COVID-19 negativos",
+                                    value=format_number(
+                                        indicadores_gerais.total_casos_negativos_nao_ignorados.values
+                                    ),
+                                    delta=format_number(
+                                        indicadores_gerais.porcentagem_total_casos_negativos_nao_ignorados.values,
+                                        "%0.2f",
+                                    )
+                                    + "%",
+                                )
 
             with st.container():
                 df_total_por_sintoma = pd.read_csv(

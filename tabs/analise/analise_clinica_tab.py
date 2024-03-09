@@ -45,11 +45,11 @@ class AnaliseClinicaTab(TabInterface):
                         )
 
                 with st.container():
-                    _, col1, col2, _ = st.columns([2, 1, 1, 2])
+                    _, col1, col2, _ = st.columns([3, 2, 2, 3])
 
                     with col1:
                         st.metric(
-                            label="Casos positivos",
+                            label="Casos COVID-19 positivos",
                             value=format_number(
                                 indicadores_gerais.total_casos_positivos.values[0]
                             ),
@@ -64,7 +64,7 @@ class AnaliseClinicaTab(TabInterface):
 
                     with col2:
                         st.metric(
-                            label="Casos negativos",
+                            label="Casos COVID-19 negativos",
                             value=format_number(
                                 indicadores_gerais.total_casos_negativos.values[0]
                             ),
@@ -105,11 +105,10 @@ class AnaliseClinicaTab(TabInterface):
                 st.markdown(
                     f"""
                     **:blue[Por sintoma]**\n
-                    Neste tópico, analisamos a distribuição de sintomas pelos entrevistados. Nesta primeira parte, é apresentado os sintomas mais comuns entre os entrevistados. Podemos perceber que os principais
-                    sintomas foram:
-                    * **\"{top1_sintoma['sintoma']}\"** com :blue[{format_number(top1_sintoma['total'])}] (:orange[{format_number(porcentagem_total_top1_sintoma, '%0.2f')}%]) 
-                    * **\"{top2_sintoma['sintoma']}\"** com :blue[{format_number(top2_sintoma['total'])}] (:orange[{format_number(porcentagem_total_top2_sintoma, '%0.2f')}%]) 
-                    * **\"{top3_sintoma['sintoma']}\"** com :blue[{format_number(top3_sintoma['total'])}] (:orange[{format_number(porcentagem_total_top3_sintoma, '%0.2f')}%]) 
+                    Neste tópico, analisamos a distribuição de sintomas pelos entrevistados. Os sintomas foram considerados de todos os entrevistados, independentemente da confirmação clínica da COVID-19. Nesta primeira parte, é apresentado os sintomas mais comuns entre os entrevistados. Assim, conforme abaixo, é possível visualizar que as principais complicações foram:
+                    * **\"{top1_sintoma['sintoma']}\"** com :blue[{format_number(top1_sintoma['total'])}] casos (:orange[{format_number(porcentagem_total_top1_sintoma, '%0.2f')}%]) 
+                    * **\"{top2_sintoma['sintoma']}\"** com :blue[{format_number(top2_sintoma['total'])}] casos (:orange[{format_number(porcentagem_total_top2_sintoma, '%0.2f')}%]) 
+                    * **\"{top3_sintoma['sintoma']}\"** com :blue[{format_number(top3_sintoma['total'])}] casos (:orange[{format_number(porcentagem_total_top3_sintoma, '%0.2f')}%]) 
 
                     Vale notar que os sintomas podem ter ocorrido em paralelo (o que explica as porcentagens aproximadas entre si).
                 """
@@ -183,6 +182,7 @@ class AnaliseClinicaTab(TabInterface):
                     **:blue[Segmentação de escolaridade X COVID-19 positivo]**\n
                     Nesta parte, relacionamos o grau de escolaridade com a classificação de COVID-19 positivo entre os entrevistados. Alguns pontos importantes que devem ser observados nesta análise:
                     * :blue[{format_number(total_escolaridade_precaria)}] (:orange[{format_number(porcentagem_total_escolaridade_precaria, '%0.2f')}%]) dos casos foram confirmados em entrevistados que possuem do ensino médio para baixo;
+                    * É importante frisar que casos onde o status foi "Aguardando resulado" ou qualquer outro de indefinição, diferente de negativo, não foram considerados nesta análise;
                     * Aqui há 2 hipóteses consideradas:
                         1) Muitos dos entrevistados são jovens (crianças ou adolescentes), conforme visto na seção de \"Análise demográfica\";
                         2) Boa parte dos entrevistados com menor grau de instrução, estão sujeitos à empregos mais manuais, que demandam a sua presença física no local de trabalho;

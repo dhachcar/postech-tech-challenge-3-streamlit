@@ -178,15 +178,11 @@ class AnaliseClinicaTab(TabInterface):
                     (total_escolaridade_precaria / total_positivos) * 100
                 ).round(2)
 
-                st.write(
-                    df_escolaridade_covid.query(f"id in @ids_escolaridade_precaria")
-                )
-
                 st.markdown(
                     f"""
                     **:blue[Segmentação de escolaridade X COVID-19 positivo]**\n
                     Nesta parte, relacionamos o grau de escolaridade com a classificação de COVID-19 positivo entre os entrevistados. Alguns pontos importantes que devem ser observados nesta análise:
-                    * {format_number(total_escolaridade_precaria)} ({format_number(porcentagem_total_escolaridade_precaria, '%0.2f')}%) dos casos foram confirmados em entrevistados que possuem do ensino médio para baixo;
+                    * :blue[{format_number(total_escolaridade_precaria)}] (:orange[{format_number(porcentagem_total_escolaridade_precaria, '%0.2f')}%]) dos casos foram confirmados em entrevistados que possuem do ensino médio para baixo;
                     * Aqui há 2 hipóteses consideradas:
                         1) Muitos dos entrevistados são jovens (crianças ou adolescentes), conforme visto na seção de \"Análise demográfica\";
                         2) Boa parte dos entrevistados com menor grau de instrução, estão sujeitos à empregos mais manuais, que demandam a sua presença física no local de trabalho;

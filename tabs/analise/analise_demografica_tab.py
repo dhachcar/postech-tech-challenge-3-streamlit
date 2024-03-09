@@ -2,6 +2,7 @@ import streamlit as st
 from tabs.tab import TabInterface
 import plotly.graph_objs as go
 import pandas as pd
+from util.layout import format_number
 
 
 class AnaliseDemograficaTab(TabInterface):
@@ -15,7 +16,7 @@ class AnaliseDemograficaTab(TabInterface):
 
             st.markdown(
                 """
-                Nesta seção, investigamos como os entrevistados pela pesquisa estão distribuídos em relação ao conjunto total de dados estudados, com foco no quésito demográfico. Vale notar que alguns gráficos que são apresentados nas próximas seções, possuem 2 visões do mesmo dado.
+                Nesta seção, investigamos como os entrevistados pela pesquisa estão distribuídos em relação ao conjunto total de dados estudados, com foco no quésito **:blue[demográfico]**. Vale notar que alguns gráficos que são apresentados nas próximas seções, possuem 2 visões do mesmo dado.
             """
             )
 
@@ -35,31 +36,36 @@ class AnaliseDemograficaTab(TabInterface):
                     with col1:
                         st.metric(
                             label="Total de entrevistados",
-                            value="{:.2f}".format(total_entrevistados),
-                            delta="{:.2f}%".format(100),
+                            value=format_number(total_entrevistados),
+                            delta=format_number(100, "%0.2f") + "%",
                             delta_color="off",
                         )
 
                     with col2:
                         st.metric(
                             label="Média de idade",
-                            value="{:.0f} anos".format(
-                                indicadores_gerais.idade_media.values[0].round(0)
-                            ),
-                            delta="{:.2f}%".format(100),
+                            value=format_number(
+                                indicadores_gerais.idade_media.values[0].round(0),
+                            )
+                            + " anos",
+                            delta=format_number(100, "%0.2f") + "%",
                             delta_color="off",
                         )
 
             with st.container():
-                st.markdown(
-                    """
-                    **:blue[Por sexo]**\n\n
-                    Neste tópico, podemos observar como os entrevistados estão segregados em relação ao seu sexo. É observado que a maioria dos respondentes é do sexo :blue[feminino].
-                """
-                )
-
                 sexo_cores = ["#983D3D", "#232066"]
                 df_pnad_sexo = pd.read_csv("assets/csv/segmentacao-sexo.csv")
+                total_mulheres = df_pnad_sexo.query("id == 2").total.values[0]
+                porcentagem_mulheres = (
+                    (total_mulheres / total_entrevistados) * 100
+                ).round(2)
+
+                st.markdown(
+                    f"""
+                    **:blue[Por sexo]**\n\n
+                    Neste tópico, podemos observar como os entrevistados estão segregados em relação ao seu sexo. É observado que a maioria dos respondentes é do sexo :blue[feminino], com cerca de :blue[{format_number(total_mulheres)}] (:orange[{format_number(porcentagem_mulheres, '%0.2f')}%]) do total de entrevistados do conjunto de dados.
+                """
+                )
 
                 col1, col2 = st.columns([1, 1])
 
@@ -104,7 +110,7 @@ class AnaliseDemograficaTab(TabInterface):
                     **:blue[Por UF]**\n
                     A próxima segmentação realizada é feita com base no estado (UF) do entrevistado.\n
                     Assim, no gráfico à seguir, é possível observar que a maioria dos entrevistados se concentram na região Sudeste do Brasil (considerando os últimos 3 meses da pesquisa, foco deste projeto). Isso também pode ter relação à quantidade de pessoas que vivem nesta região do país, sendo ela a mais populosa dentre todas as outras. \n
-                    Especificamente, Minas Gerais teve :blue[{total_uf_mg}] entrevistados ({porcentagem_uf_mg}% do total), enquanto que São Paulo e Rio de Janeiro tiveram :blue[{total_uf_sp}] ({porcentagem_uf_sp}%) e :blue[{total_uf_rj}] ({porcentagem_uf_rj}%) respectivamente. Os três estados em conjunto respondem por cerca de :blue[{total_sudeste}] entrevistados ou {porcentagem_sudeste}% do total.
+                    Especificamente, Minas Gerais teve :blue[{format_number(total_uf_mg)}] entrevistados (:orange[{format_number(porcentagem_uf_mg, '%0.2f')}%] do total), enquanto que São Paulo e Rio de Janeiro tiveram :blue[{format_number(total_uf_sp)}] (:orange[{format_number(porcentagem_uf_sp, '%0.2f')}%]) e :blue[{format_number(total_uf_rj)}] (:orange[{format_number(porcentagem_uf_rj, '%0.2f')}%]) respectivamente. Os três estados em conjunto respondem por cerca de :blue[{format_number(total_sudeste)}] entrevistados ou :orange[{format_number(porcentagem_sudeste, '%0.2f')}%] do total.
                 """
                 )
 
@@ -145,7 +151,7 @@ class AnaliseDemograficaTab(TabInterface):
                     **:blue[Por região metropolitana]**\n
                     Nesta seção, os entrevistados foram segmentados pela região metropolitana a qual pertencem.
                     Conforme o gráfico à seguir, é possível observar que a maioria dos entrevistados se concentram na região Sudeste do Brasil (da mesma maneira que na segmentação anterior por UF).\n
-                    Entretanto, a ordem das regiões com mais entrevistados se altera, deixando a região de Rio de Janeiro (RJ) com :blue[{total_rm_rj}] entrevistados ({porcentagem_rm_rj}% do total), enquanto que em 2º e 3º colocados, estão as regiões de São Paulo (SP) e Belo Horizonte (MG), respectivamente com :blue[{total_rm_sp}] ({porcentagem_rm_sp}%) e :blue[{total_rm_mg}] ({porcentagem_rm_mg}%). As três regiões em conjunto respondem por cerca de :blue[{total_sudeste}] entrevistados ou {porcentagem_sudeste}% do total.
+                    Entretanto, a ordem das regiões com mais entrevistados se altera, deixando a região de Rio de Janeiro (RJ) com :blue[{format_number(total_rm_rj)}] entrevistados (:orange[{format_number(porcentagem_rm_rj, '%0.2f')}%] do total), enquanto que em 2º e 3º colocados, estão as regiões de São Paulo (SP) e Belo Horizonte (MG), respectivamente com :blue[{format_number(total_rm_sp)}] (:orange[{format_number(porcentagem_rm_sp, '%0.2f')}%]) e :blue[{format_number(total_rm_mg)}] (:orange[{format_number(porcentagem_rm_mg, '%0.2f')}%]). As três regiões em conjunto respondem por cerca de :blue[{format_number(total_sudeste)}] entrevistados ou :orange[{format_number(porcentagem_sudeste, '%0.2f')}%] do total.
                 """
                 )
 
@@ -167,16 +173,18 @@ class AnaliseDemograficaTab(TabInterface):
                 df_pnad_escolaridade = pd.read_csv(
                     "assets/csv/segmentacao-escolaridade.csv"
                 )
-                ids_escolaridade_precaria = [3, 5, 1, 2, 4]
+                ids_escolaridade_precaria = [1, 2, 3, 4, 5]
                 total_escolaridade_precaria = df_pnad_escolaridade.query(
                     f"id in @ids_escolaridade_precaria"
                 ).total.sum()
-                porcentagem_escolaridade_precaria = ((total_escolaridade_precaria / total_entrevistados) * 100).round(2)
+                porcentagem_escolaridade_precaria = (
+                    (total_escolaridade_precaria / total_entrevistados) * 100
+                ).round(2)
 
                 st.markdown(
                     f"""
                     **:blue[Por escolaridade]**\n
-                    No próximo tópico, é analisado a distribuição dos entrevistados em relação à sua escolaridade. Aqui, o dado que mais chama a atenção, é a quantidade dos entrevistados que teve uma educação precária (considerado como abaixo de Ensino Superior Incompleto), com cerca de :blue[{total_escolaridade_precaria}] pessoas ou {porcentagem_escolaridade_precaria}% do total de entrevistados. Estas pessoas provavelmente estavam em empregos considerados mais físicos, ou seja, com necessidade de presença física para exercer suas atividades. Este simples fato já demonstra que boa parte da população brasileira teve uma exposição maior ao vírus da COVID-19, devido ao seu grau de escolaridade.\n
+                    No próximo tópico, é analisado a distribuição dos entrevistados em relação à sua escolaridade. Aqui, o dado que mais chama a atenção, é a quantidade dos entrevistados que teve uma educação precária (considerado como abaixo de Ensino Superior Incompleto), com cerca de :blue[{format_number(total_escolaridade_precaria)}] pessoas ou :orange[{format_number(porcentagem_escolaridade_precaria, '%0.2f')}%] do total de entrevistados. Estas pessoas provavelmente estavam em empregos considerados mais físicos, ou seja, com necessidade de presença física para exercer suas atividades. Este simples fato já demonstra que boa parte da população brasileira teve uma exposição maior ao vírus da COVID-19, devido ao seu grau de escolaridade.\n
                     Também há uma outra forma de interpretar estes dados: a idade dos entrevistados pode ter influenciado negativamente este número grande de pessoas com escolaridade considerada inadequada. A relação entre ambos é estabelecida na seção seguinte.
                 """
                 )
@@ -207,9 +215,13 @@ class AnaliseDemograficaTab(TabInterface):
                 df_pnad_idade = pd.read_csv("assets/csv/segmentacao-idade.csv")
                 faixas_etarias = df_pnad_idade.nome.values.astype(str)
                 populacao = df_pnad_idade.total.values
-                qtd_total_faixa_ate_18 = df_pnad_idade[df_pnad_idade.index == 0].total[0]
-                porcentagem_qtd_total_faixa_ate_18 = ((qtd_total_faixa_ate_18 / total_entrevistados) * 100).round(2)
-            
+                qtd_total_faixa_ate_18 = df_pnad_idade[df_pnad_idade.index == 0].total[
+                    0
+                ]
+                porcentagem_qtd_total_faixa_ate_18 = (
+                    (qtd_total_faixa_ate_18 / total_entrevistados) * 100
+                ).round(2)
+
                 st.markdown(
                     f"""
                     **:blue[Por faixa etária]**\n
@@ -221,7 +233,7 @@ class AnaliseDemograficaTab(TabInterface):
                     * De 65 anos e 1 dia até 80 anos
                     * De 80 anos e 1 dia até 120 anos
 
-                    É possível observar que uma parte considerável dos entrevistados (:blue[{qtd_total_faixa_ate_18} ou {porcentagem_qtd_total_faixa_ate_18}% do total]) está dentro da faixa de 0 até 18 anos. Isso pode explicar em partes, os resultados obtidos na segmentação anterior por escolaridade, mas não excluí o fato de quão precário é o ensino no Brasil.
+                    É possível observar que uma parte considerável dos entrevistados (:blue[{format_number(qtd_total_faixa_ate_18)}] ou :orange[{format_number(porcentagem_qtd_total_faixa_ate_18, '%0.2f')}%] do total) está dentro da faixa de 0 até 18 anos. Isso pode explicar em partes, os resultados obtidos na segmentação anterior por escolaridade, mas não excluí o fato de quão precário é o ensino no Brasil.
                 """
                 )
 

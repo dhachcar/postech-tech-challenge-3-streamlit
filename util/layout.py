@@ -1,6 +1,9 @@
 import streamlit as st
 from st_pages import show_pages, Page
+import locale
 
+def format_number(number, format='%0.0f'):
+    return locale.format(format, number, grouping=True)
 
 def output_layout():
     show_pages(
@@ -40,7 +43,7 @@ def output_layout():
 
         st.divider()
 
-        st.subheader("Executar localmente")
+        st.subheader("Executando localmente")
         st.code(body="streamlit run main.py", language="shell")
 
         st.divider()

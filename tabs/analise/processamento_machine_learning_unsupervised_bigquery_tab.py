@@ -8,7 +8,7 @@ class AnaliseProcessamentoMachineLearningUnsupervisedBigqueryTab(TabInterface):
     
     def render(self):
         with self.tab:
-            st.subheader(':blue[Machine Learning]', divider='blue')
+            st.subheader(':blue[Machine Learning: Unsupervised BigQuery]', divider='blue')
             st.markdown('''
                 TESTE
             ''')

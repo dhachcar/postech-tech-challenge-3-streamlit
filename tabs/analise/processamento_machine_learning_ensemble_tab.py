@@ -51,10 +51,12 @@ class AnaliseProcessamentoMachineLearningEnsembleTab(TabInterface):
 
             lista_respostas_sintoma = {1: "Sim", 2: "Nâo", 9: "Ignorado"}
 
-            st.subheader(":blue[Machine Learning]", divider="blue")
+            st.subheader(":blue[Machine Learning: Ensemble]", divider="blue")
             st.markdown(
                 """
-                Nesta seção, são apresentados dois modelos de previsão destinados a determinar se um entrevistado está ou não com COVID-19. Cada um desses modelos teve seus hiperparâmetros definidos de maneiras diferentes, o que explica a disparidade de desempenho entre eles. No entanto, ambos foram treinados e validados com o mesmo conjunto de dados. Ambos os modelos foram desenvolvidos com base no algoritmo :blue[XGBoost], um algoritmo :blue[supervisionado] do tipo :blue[ensemble].
+                Nesta seção, são apresentados dois modelos de previsão destinados a determinar se um entrevistado está ou não com COVID-19. Cada um desses modelos teve seus hiperparâmetros definidos de maneiras diferentes, o que explica a disparidade de desempenho entre eles. No entanto, ambos foram treinados e validados com o mesmo conjunto de dados. Ambos os modelos foram desenvolvidos com base no algoritmo :blue[XGBoost], um algoritmo :blue[supervisionado] do tipo :blue[ensemble].\n
+                O objetivo de ambos os modelos é :blue[facilitar a identificação rápida e automática de casos de COVID-19]. Essa abordagem visa agilizar o processo de triagem e diagnóstico, permitindo que os profissionais de saúde identifiquem com mais rapidez e precisão os indivíduos infectados.\n
+                Com uma detecção precoce e eficiente, os pacientes podem receber cuidados e tratamentos mais rápidos, o que é crucial para limitar a propagação do vírus e melhorar os resultados clínicos. Além disso, a identificação precoce também pode ajudar na implementação de medidas de controle de infecção mais eficazes, reduzindo o risco de transmissão para outras pessoas.
             """
             )
 

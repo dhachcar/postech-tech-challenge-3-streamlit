@@ -8,7 +8,7 @@ class AnaliseProcessamentoMachineLearningUnsupervisedTab(TabInterface):
     
     def render(self):
         with self.tab:
-            st.subheader(':blue[Machine Learning]', divider='blue')
+            st.subheader(':blue[Machine Learning: Unsupervised]', divider='blue')
             st.markdown('''
                 TESTE - exportar/importar o modelo aqui (via joblib)
             ''')

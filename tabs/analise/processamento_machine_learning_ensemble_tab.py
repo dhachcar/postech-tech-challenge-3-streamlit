@@ -4,6 +4,7 @@ from sklearn.metrics import accuracy_score
 import streamlit as st
 from tabs.tab import TabInterface
 import time
+from util.layout import format_number
 
 
 class AnaliseProcessamentoMachineLearningEnsembleTab(TabInterface):
@@ -75,15 +76,15 @@ class AnaliseProcessamentoMachineLearningEnsembleTab(TabInterface):
                 with col1:
                     st.metric(
                         label="XGB 1 (parâmetros default)",
-                        value=f"{xgb1_acuracia:,.2f}%",
-                        delta=f"{(xgb1_acuracia - xgb2_acuracia):,.2f}%",
+                        value=f"{format_number(xgb1_acuracia, '%0.2f')}%",
+                        delta=f"{format_number(xgb1_acuracia - xgb2_acuracia, '%0.2f')}%",
                     )
 
                 with col2:
                     st.metric(
                         label="XGB 2 (parâmetros sugeridos)",
-                        value=f"{xgb2_acuracia:,.2f}%",
-                        delta=f"{(xgb2_acuracia - xgb1_acuracia):,.2f}%",
+                        value=f"{format_number(xgb2_acuracia, '%0.2f')}%",
+                        delta=f"{format_number(xgb2_acuracia - xgb1_acuracia, '%0.2f')}%",
                     )
 
             with st.container():

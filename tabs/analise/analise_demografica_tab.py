@@ -19,12 +19,12 @@ class AnaliseDemograficaTab(TabInterface):
                 Nesta seção, investigamos como os entrevistados pela pesquisa estão distribuídos em relação ao conjunto total de dados estudados, com foco no quésito **:blue[demográfico]**. Vale notar que alguns gráficos que são apresentados nas próximas seções, possuem 2 visões do mesmo dado.\n
                 **:orange[IMPORTANTE:]** Devido à presença de dados faltantes, foram realizados tratamentos para preencher as lacunas e garantir maior consistência na análise dos dados. Valores *default* foram adicionados às colunas para evitar prejuízos à análise.
                 Algumas das colunas utilizadas nas próximas análises e que foram afetadas pela falta de dados:
-                * Coluna \"UF\"
-                * Coluna \"Região metropolitana\"
-                * Coluna \"Resultado do exame\":blue[**]
-                * Coluna \"Se trabalhou em homeoffice\":blue[**]
+                * Coluna :blue[UF]
+                * Coluna :blue[Região metropolitana]
+                * Coluna :blue[Resultado do exame]:orange[**]
+                * Coluna :blue[Se trabalhou em homeoffice]:orange[**]
 
-                <sup>:blue[**] dados faltantes tratados</sup>
+                <sup>:orange[**] dados faltantes tratados</sup>
             """, unsafe_allow_html=True
             )
 

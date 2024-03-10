@@ -19,8 +19,8 @@ class AnaliseClinicaTab(TabInterface):
                 """
                 Ao longo desta seção, analisamos como os entrevistados estão distribuídos em relação ao conjunto total de dados estudados, agora com foco no quésito **:blue[clínico]**.\n
                 Logo na primeira parte, são apresentados os indicadores gerais da análise clínica. Tais indicadores foram divididos em 2 categorias:
-                * A primeira categoria considera todos os entrevistados, independente do resultado de seu exame
-                * A segunda categoria considera todos os entrevistados que tiveram algum resultado em seu exame
+                * :one: A primeira categoria considera todos os entrevistados, independente do resultado de seu exame
+                * :two: A segunda categoria considera todos os entrevistados que tiveram algum resultado em seu exame
 
                 Isto foi feito para melhorar a visualização das porcentagens de entrevistados infectados e não infectados.
             """
@@ -40,7 +40,7 @@ class AnaliseClinicaTab(TabInterface):
                     col1_raiz, col2_raiz = st.columns([1, 1])
 
                     with col1_raiz:
-                        st.subheader(':blue[Todos independente do resultado]', divider="blue")
+                        st.subheader(':blue[:one: Todos independente do resultado]', divider="blue")
 
                         with st.container():
                             st.metric(
@@ -84,7 +84,7 @@ class AnaliseClinicaTab(TabInterface):
                                 )
 
                     with col2_raiz:
-                        st.subheader(':blue[Todos com resultado não ignorado]', divider="blue")
+                        st.subheader(':blue[:two: Todos com resultado não ignorado]', divider="blue")
 
                         with st.container():
                             st.metric(
@@ -124,6 +124,10 @@ class AnaliseClinicaTab(TabInterface):
                                     )
                                     + "%",
                                 )
+
+            st.markdown(f'''
+                **:orange[IMPORTANTE:]** Algumas das análises posteriores, que levaram em conta o resultado do exame em sua composição, descartaram todos os registros com resultados classificados como "ignorados". Portanto, essas análises foram conduzidas com base em um total de :blue[{format_number(indicadores_gerais.total_casos_negativos_nao_ignorados.values + indicadores_gerais.total_casos_positivos_nao_ignorados.values)}] registros.
+            ''')
 
             with st.container():
                 df_total_por_sintoma = pd.read_csv(
@@ -266,7 +270,7 @@ class AnaliseClinicaTab(TabInterface):
                 st.markdown(
                     """
                     **:blue[Segmentação de plano de saúde X COVID-19 positivo]**\n
-                    Nesta seção, é possível verificar que a maioria dos casos positivos de COVID-19 são em pessoas que não possuem um plano de saúde que possam suprir suas necessidades.
+                    Nesta seção, é possível verificar que a maioria dos casos positivos de COVID-19 são em pessoas que não possuem um plano de saúde que possa suprir suas necessidades.
                 """
                 )
 
@@ -305,7 +309,9 @@ class AnaliseClinicaTab(TabInterface):
                 )
 
                 st.markdown(
-                    "A query foi executada dentro do BigQuery, o que criou um job id. Posteriormente, este job id foi consumido dentro do Colabs."
+                    '''
+                    A análise à seguir foi realizada no :blue[Google BigQuery], gerando um identificador de trabalho (*job id*). Posteriormente, esse identificador foi usado no :blue[Colabs] para consultar e realizar a análise dos dados.
+                '''
                 )
 
                 st.image(
@@ -316,6 +322,15 @@ class AnaliseClinicaTab(TabInterface):
                 df_casos_positivos_mes_a_mes = pd.read_csv(
                     "assets/csv/evolucao-casos-positivos-mes-a-mes.csv"
                 )
+                df_casos_positivos_mes_a_mes_set = df_casos_positivos_mes_a_mes.total[0]
+                df_casos_positivos_mes_a_mes_nov = df_casos_positivos_mes_a_mes.total[2]
+                porcentagem_relativa_mes_a_mes = (((df_casos_positivos_mes_a_mes_nov / df_casos_positivos_mes_a_mes_set) * 100) - 100).round(2)
+
+                st.markdown(
+                    f'''
+                    No gráfico de barras abaixo, é visível a tendência de alta, representando a evolução do número de infectados pela COVID-19 na PNAD 2020.\n
+                    Em Setembro, foram contabilizados :blue[{format_number(df_casos_positivos_mes_a_mes_set)}] casos positivos, mas em Novembro, o número saltou para mais :blue[{format_number(df_casos_positivos_mes_a_mes_nov)}], um aumento mensal de casos positivos de cerca de :orange[{format_number(porcentagem_relativa_mes_a_mes)}%].
+                ''')
 
                 fig = go.Figure(
                     go.Bar(
@@ -330,6 +345,7 @@ class AnaliseClinicaTab(TabInterface):
                         y=df_casos_positivos_mes_a_mes.total,
                         mode="lines",
                         name="Tendência",
+                        line=dict(color='red')
                     )
                 )
                 fig.update_layout(
@@ -343,9 +359,11 @@ class AnaliseClinicaTab(TabInterface):
             with st.container():
                 st.markdown(
                     """
-                    **:blue[Evolução dos casos positivos (mês a mês e UF)]**
+                    **:blue[Evolução dos casos positivos (mês a mês e UF)]**\n
+                    De forma idêntica à análise anterior, a próxima query também foi executada dentro do :blue[BigQuery] e teve o seu resultado reutilizado via identificador de trabalho (*job id*), no :blue[Colabs].
                 """
                 )
+
                 st.image(
                     "assets/img/bigquery-evolucao-casos-mes-a-mes-por-uf.png",
                     caption="Query utilizada pelo job, dentro do BigQuery",
@@ -354,6 +372,11 @@ class AnaliseClinicaTab(TabInterface):
                 df_casos_positivos_mes_a_mes_por_uf = pd.read_csv(
                     "assets/csv/evolucao-casos-positivos-mes-a-mes-por-uf.csv"
                 )
+
+                st.markdown(
+                    '''
+                    Por fim, agora quebramos a análise por UF e da mesma forma que no gráfico anterior, é possível ver que na maioria dos estados do Brasil, a quantidade de casos positivos de COVID-19 aumentou conforme a passagem dos meses.
+                ''')
 
                 # quantidade de cores únicas
                 num_colors = len(df_casos_positivos_mes_a_mes_por_uf["estado"].unique())

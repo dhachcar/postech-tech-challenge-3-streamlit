@@ -5,6 +5,7 @@ import streamlit as st
 from tabs.tab import TabInterface
 import time
 
+
 class AnaliseProcessamentoMachineLearningEnsembleTab(TabInterface):
     def __init__(self, tab):
         self.tab = tab
@@ -12,22 +13,23 @@ class AnaliseProcessamentoMachineLearningEnsembleTab(TabInterface):
 
     def render(self):
         with self.tab:
-            st.subheader(":blue[Machine Learning]", divider="blue")
-            st.markdown(
-                """
-                **:blue[XGBoost]**\n
-                A seguir, é possível preencher os sintomas de um entrevistado e executar a previsão para o resultado de seu exame. Os resultados possíveis são:
-                * Positivo
-                * Negativo
-                * Inconclusivo
-
-                Além disso, a previsão irá rodar em :blue[2 modelos XGB distintos] (cada um criado com parâmetros diferentes).
-            """
-            )
-
             x_test = pd.read_csv("assets/modelos/ensemble/xgb_x_test.csv")
             y_test = pd.read_csv("assets/modelos/ensemble/xgb_y_test.csv")
             df_resultado_exame = pd.read_csv("assets/csv/resultado-exame.csv")
+
+            def get_label_for_xgboost_result(result) -> str:
+                texto_positivo = ":one: **:red[Positivo]** :worried:"
+                texto_negativo = ":two: **:green[Negativo]** :wink:"
+                texto_inconclusivo = (
+                    ":three: **:orange[Inconclusivo]** :neutral_face:"
+                )
+
+                if result == "Positivo":
+                    return texto_positivo
+                elif result == "Negativo":
+                    return texto_negativo
+                else:
+                    return texto_inconclusivo
 
             def recarrega_modelo_xgb(file: str):
                 xgb_recarregado = joblib.load(file)
@@ -39,8 +41,6 @@ class AnaliseProcessamentoMachineLearningEnsembleTab(TabInterface):
 
                 return (xgb_recarregado, xgb_recarregado_acuracia)
 
-            # st.markdown(f"{xgb_recarregado_acuracia:.2f}%")
-
             xgb1, xgb1_acuracia = recarrega_modelo_xgb(
                 "assets/modelos/ensemble/xgb-default.pkl"
             )
@@ -49,6 +49,25 @@ class AnaliseProcessamentoMachineLearningEnsembleTab(TabInterface):
             )
 
             lista_respostas_sintoma = {1: "Sim", 2: "Nâo", 9: "Ignorado"}
+
+            st.subheader(":blue[Machine Learning]", divider="blue")
+            st.markdown(
+                """
+                Nesta seção, são apresentados dois modelos de previsão destinados a determinar se um entrevistado está ou não com COVID-19. Cada um desses modelos teve seus hiperparâmetros definidos de maneiras diferentes, o que explica a disparidade de desempenho entre eles. No entanto, ambos foram treinados e validados com o mesmo conjunto de dados. Ambos os modelos foram desenvolvidos com base no algoritmo :blue[XGBoost], um algoritmo :blue[supervisionado] do tipo :blue[ensemble].
+            """
+            )
+
+            st.markdown(
+                f"""
+                **:blue[Executando os modelos XGBoost]**\n
+                Preencha os campos abaixo com as respostas da PNAD 2020 que os modelos irão dizer se o entrevistado está ou não com COVID-19. Dentre os resultados possíveis, temos o seguinte:
+                * {get_label_for_xgboost_result('Positivo')}
+                * {get_label_for_xgboost_result('Negativo')}
+                * {get_label_for_xgboost_result('Inconclusivo')}
+
+                Um detalhe interessante é o peso que a coluna :blue[perda de olfato] possui, pois ela parece ser um fator determinante para o modelo 1 indicar se o entrevistado está ou não com COVID-19. Durante a pandemia de 2020 ~ 2022, a :blue[perda de olfato] foi de fato um dos primeiros sintomas que despertavam suspeita de COVID-19.
+            """
+            )
 
             with st.container():
                 _, col1, col2, _ = st.columns([2, 1, 1, 2])
@@ -231,17 +250,23 @@ class AnaliseProcessamentoMachineLearningEnsembleTab(TabInterface):
                     _, col1, col2, _ = st.columns([2, 1, 1, 2])
 
                     with col1:
-                        st.metric(
-                            label="XGB 1 (parâmetros default)", value=xgb1_resultado
+                        st.markdown(
+                            f"""
+                            :blue[XGB 1 (parâmetros default)]\n
+                            {get_label_for_xgboost_result(xgb1_resultado)}
+                        """
                         )
 
                     with col2:
-                        st.metric(
-                            label="XGB 2 (parâmetros sugeridos)", value=xgb2_resultado
+                        st.markdown(
+                            f"""
+                            :blue[XGB 2 (parâmetros sugeridos)]\n
+                            {get_label_for_xgboost_result(xgb2_resultado)}
+                        """
                         )
 
             if st.button("Entrevistado com COVID-19?"):
-                with st.spinner('Processando...'):
+                with st.spinner("Processando..."):
                     time.sleep(3)
                     predict()
                     st.success("Processamento concluído!")

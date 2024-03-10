@@ -27,6 +27,7 @@ with st.container():
     17) IBGE. PNAD COVID-19 - O que é. 2020. Disponível em: https://www.ibge.gov.br/estatisticas/investigacoes-experimentais/estatisticas-experimentais/27946-divulgacao-semanal-pnadcovid1?t=o-que-e. Acesso em 27/01/2024.
     18) IBGE. PNAD COVID-19 - Microdados. 2020. Disponível em: https://www.ibge.gov.br/estatisticas/investigacoes-experimentais/estatisticas-experimentais/27946-divulgacao-semanal-pnadcovid1?t=microdados. Acesso em 27/01/2024.
     19) IBGE. PNAD COVID-19 - Informações Técnicas. 2020. Disponível em: https://www.ibge.gov.br/estatisticas/investigacoes-experimentais/estatisticas-experimentais/27946-divulgacao-semanal-pnadcovid1?t=notas-tecnicas. Acesso em 28/01/2024.
-    20) Streamlit. Streamlit Documentation. Disponível em: https://docs.streamlit.io/. Acesso em 18/02/2024.
-    21) SUKUMAR, H. Inforiver. 11 Pie chart alternatives and when to use them. Disponível em: https://inforiver.com/insights/11-pie-chart-alternatives-and-when-to-use-them/. Acesso em 15/02/2024.
+    20) JAIN, A. Practical Approach to KMeans Clustering — Python and Why Scaling is Important. 2019. Disponível em: https://medium.com/analytics-vidhya/practical-approach-to-kmeans-clustering-python-and-why-scaling-is-important-44ac0b0fea47. Acesso em 09/03/2024.
+    21) Streamlit. Streamlit Documentation. Disponível em: https://docs.streamlit.io/. Acesso em 18/02/2024.
+    22) SUKUMAR, H. Inforiver. 11 Pie chart alternatives and when to use them. Disponível em: https://inforiver.com/insights/11-pie-chart-alternatives-and-when-to-use-them/. Acesso em 15/02/2024.
     ''')

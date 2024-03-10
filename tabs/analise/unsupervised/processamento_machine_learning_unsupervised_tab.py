@@ -20,8 +20,8 @@ class AnaliseProcessamentoMachineLearningUnsupervisedTab(TabInterface):
 
             # TODO: mostrar um grafico dos grupos (plotly ou img?)
 
-            kmeans = joblib.load('/assets/modelos/unsupervised/kmeans.pkl')
-            scaler = joblib.load('/assets/modelos/unsupervised/scaler.pkl')
-            pca = joblib.load('/assets/modelos/unsupervised/pca.pkl')
+            kmeans = joblib.load('assets/modelos/unsupervised/kmeans.pkl')
+            scaler = joblib.load('assets/modelos/unsupervised/standard-scaler.pkl')
+            pca = joblib.load('assets/modelos/unsupervised/pca.pkl')
 
 

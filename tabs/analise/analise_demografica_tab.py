@@ -88,7 +88,7 @@ class AnaliseDemograficaTab(TabInterface):
                         )
                     )
                     fig.update_layout(
-                        title="Segmentação dos entrevistados por sexo", width=500
+                        title="Segmentação dos entrevistados por sexo", width=400
                     )
                     st.plotly_chart(fig)
 
@@ -96,6 +96,7 @@ class AnaliseDemograficaTab(TabInterface):
                     st.image(
                         "assets/img/analise-segmentacao-sexo-1.png",
                         caption="Gráfico de waffle",
+                        width=500
                     )
 
             with st.container():
@@ -210,13 +211,14 @@ class AnaliseDemograficaTab(TabInterface):
                     fig.update_layout(
                         title="Segmentação dos entrevistados por escolaridade"
                     )
-                    fig.update_layout(xaxis=dict(tickangle=-45), width=600)
+                    fig.update_layout(xaxis=dict(tickangle=-45), width=400)
                     st.plotly_chart(fig)
 
                 with col2:
                     st.image(
                         "assets/img/analise-segmentacao-escolaridade-1.png",
                         caption="Gráfico de waffle",
+                        width=500
                     )
 
             with st.container():
@@ -283,7 +285,7 @@ class AnaliseDemograficaTab(TabInterface):
                     )
                     fig.update_layout(
                         title="Segmentação dos entrevistados por plano de saúde",
-                        width=500,
+                        width=400,
                     )
                     st.plotly_chart(fig)
 
@@ -291,4 +293,5 @@ class AnaliseDemograficaTab(TabInterface):
                     st.image(
                         "assets/img/analise-segmentacao-plano-saude-1.png",
                         caption="Gráfico de waffle",
+                        width=500
                     )

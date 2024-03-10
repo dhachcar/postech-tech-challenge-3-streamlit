@@ -40,7 +40,10 @@ class AnaliseClinicaTab(TabInterface):
                     col1_raiz, col2_raiz = st.columns([1, 1])
 
                     with col1_raiz:
-                        st.subheader(':blue[:one: Todos independente do resultado]', divider="blue")
+                        st.subheader(
+                            ":blue[:one: Todos independente do resultado]",
+                            divider="blue",
+                        )
 
                         with st.container():
                             st.metric(
@@ -84,13 +87,17 @@ class AnaliseClinicaTab(TabInterface):
                                 )
 
                     with col2_raiz:
-                        st.subheader(':blue[:two: Todos com resultado não ignorado]', divider="blue")
+                        st.subheader(
+                            ":blue[:two: Todos com resultado não ignorado]",
+                            divider="blue",
+                        )
 
                         with st.container():
                             st.metric(
                                 label="Total de entrevistados",
                                 value=format_number(
-                                    indicadores_gerais.total_casos_negativos_nao_ignorados.values + indicadores_gerais.total_casos_positivos_nao_ignorados.values
+                                    indicadores_gerais.total_casos_negativos_nao_ignorados.values
+                                    + indicadores_gerais.total_casos_positivos_nao_ignorados.values
                                 ),
                                 delta=format_number(100, "%0.2f") + "%",
                                 delta_color="off",
@@ -125,9 +132,11 @@ class AnaliseClinicaTab(TabInterface):
                                     + "%",
                                 )
 
-            st.markdown(f'''
+            st.markdown(
+                f"""
                 **:orange[IMPORTANTE:]** Algumas das análises posteriores, que levaram em conta o resultado do exame em sua composição, descartaram todos os registros com resultados classificados como "ignorados". Portanto, essas análises foram conduzidas com base em um total de :blue[{format_number(indicadores_gerais.total_casos_negativos_nao_ignorados.values + indicadores_gerais.total_casos_positivos_nao_ignorados.values)}] registros.
-            ''')
+            """
+            )
 
             with st.container():
                 df_total_por_sintoma = pd.read_csv(
@@ -213,10 +222,6 @@ class AnaliseClinicaTab(TabInterface):
                 st.plotly_chart(fig)
 
             with st.container():
-                # TODO: o total aqui está estranho
-                # TODO: o total aqui está estranho
-                # TODO: o total aqui está estranho
-                # TODO: o total aqui está estranho
                 df_escolaridade_covid = pd.read_csv(
                     "assets/csv/segmentacao-escolaridade-x-casos-positivos.csv"
                 )
@@ -254,7 +259,7 @@ class AnaliseClinicaTab(TabInterface):
                     )
                     fig.update_layout(
                         title="Segmentação de escolaridade X COVID-19 positivo",
-                        width=500,
+                        width=490,
                     )
                     st.plotly_chart(fig)
 
@@ -264,8 +269,6 @@ class AnaliseClinicaTab(TabInterface):
                         caption="Gráfico de waffle",
                     )
 
-            # TODO: o total aqui está estranho
-            # TODO: o total aqui está estranho
             with st.container():
                 st.markdown(
                     """
@@ -291,7 +294,7 @@ class AnaliseClinicaTab(TabInterface):
                     )
                     fig.update_layout(
                         title="Segmentação de plano de saúde X COVID-19 positivo",
-                        width=500,
+                        width=450,
                     )
                     st.plotly_chart(fig)
 
@@ -309,9 +312,9 @@ class AnaliseClinicaTab(TabInterface):
                 )
 
                 st.markdown(
-                    '''
+                    """
                     A análise à seguir foi realizada no :blue[Google BigQuery], gerando um identificador de trabalho (*job id*). Posteriormente, esse identificador foi usado no :blue[Colabs] para consultar e realizar a análise dos dados.
-                '''
+                """
                 )
 
                 st.image(
@@ -324,13 +327,23 @@ class AnaliseClinicaTab(TabInterface):
                 )
                 df_casos_positivos_mes_a_mes_set = df_casos_positivos_mes_a_mes.total[0]
                 df_casos_positivos_mes_a_mes_nov = df_casos_positivos_mes_a_mes.total[2]
-                porcentagem_relativa_mes_a_mes = (((df_casos_positivos_mes_a_mes_nov / df_casos_positivos_mes_a_mes_set) * 100) - 100).round(2)
+                porcentagem_relativa_mes_a_mes = (
+                    (
+                        (
+                            df_casos_positivos_mes_a_mes_nov
+                            / df_casos_positivos_mes_a_mes_set
+                        )
+                        * 100
+                    )
+                    - 100
+                ).round(2)
 
                 st.markdown(
-                    f'''
+                    f"""
                     No gráfico de barras abaixo, é visível a tendência de alta, representando a evolução do número de infectados pela COVID-19 na PNAD 2020.\n
                     Em Setembro, foram contabilizados :blue[{format_number(df_casos_positivos_mes_a_mes_set)}] casos positivos, mas em Novembro, o número saltou para mais :blue[{format_number(df_casos_positivos_mes_a_mes_nov)}], um aumento mensal de casos positivos de cerca de :orange[{format_number(porcentagem_relativa_mes_a_mes)}%].
-                ''')
+                """
+                )
 
                 fig = go.Figure(
                     go.Bar(
@@ -345,7 +358,7 @@ class AnaliseClinicaTab(TabInterface):
                         y=df_casos_positivos_mes_a_mes.total,
                         mode="lines",
                         name="Tendência",
-                        line=dict(color='red')
+                        line=dict(color="red"),
                     )
                 )
                 fig.update_layout(
@@ -374,9 +387,10 @@ class AnaliseClinicaTab(TabInterface):
                 )
 
                 st.markdown(
-                    '''
+                    """
                     Por fim, agora quebramos a análise por UF e da mesma forma que no gráfico anterior, é possível ver que na maioria dos estados do Brasil, a quantidade de casos positivos de COVID-19 aumentou conforme a passagem dos meses.
-                ''')
+                """
+                )
 
                 # quantidade de cores únicas
                 num_colors = len(df_casos_positivos_mes_a_mes_por_uf["estado"].unique())

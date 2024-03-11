@@ -43,15 +43,15 @@ with st.container():
        Considerando todo o material analisado e modelos criados, as sugestões finais deste projeto são as seguintes:
        1) Utilizar um modelo de classificação para agilizar o processo de identificação de pessoas com COVID-19;
        2) Utilizar um modelo de clusterização para segmentar as pessoas em grupos bem distintos que permitam a criação de estratégias e políticas específicas para cada um;
-       3) Criar políticas de saúde pública voltadas ao enfretamento de novas pandemias e auxilio àquelas pessoas que não possuem o beneficio do homeoffice;
-       4) Estabelecer parcerias entre governo e operadoras de planos de saúde em épocas de pandemia que permitam que a população menos favorecida tenha acesso facilitado à diagnósticos e tratamentos de qualidade.
+       3) Criar políticas de saúde pública voltadas ao enfretamento de novas pandemias e auxilio àquelas pessoas que não possuem o benefício do homeoffice;
+       4) Estabelecer parcerias entre governo e operadoras de planos de saúde em épocas de pandemia, as quais permitam que a população menos favorecida tenha acesso facilitado à diagnósticos e tratamentos de qualidade.
     """
     )
 
     st.markdown(
         """
             <br/><br/><br/>
-            <small>*O processo de criação e evolução deste projeto foi, sem dúvida, desafiador em vários sentidos, mas ao mesmo tempo foi uma experiência divertida e altamente educativa. Devido ao foco principal do TechChallenge da fase 2 estar em séries temporais, tive menos oportunidades para explorar algoritmos de Machine Learning de outras categorias, como ensemble e unsupervised (utilizados neste projeto). No entanto, consegui assimilar diversos conceitos que foram abordados pelos professores, confirmando a importância da prática para uma compreensão mais profunda das coisas. No final das contas, o projeto se mostrou uma jornada muito gratificante!<br/><b>:blue[&ndash; Danilo H. Achcar &ndash;]</b>*</small>
+            <small>*O processo de criação e evolução deste projeto foi, sem dúvida, desafiador em vários sentidos, mas ao mesmo tempo foi uma experiência divertida e altamente educativa. Tentei aplicar modelos de machine learning variados (ensemble e unsupervised) neste TechChallenge da fase 3, devido ao foco principal do TechChallenge da fase 2 estar em séries temporais. Consegui assimilar diversos conceitos que foram abordados pelos professores, mas que não havia praticado muito ainda, o que só confirma a importância da prática para uma compreensão mais profunda das coisas. No final das contas, o projeto se mostrou uma jornada muito gratificante! :orange[Obrigado pela oportunidade].<br/><b>:blue[&ndash; Danilo H. Achcar &ndash;]</b>*</small>
         """,
         unsafe_allow_html=True,
     )

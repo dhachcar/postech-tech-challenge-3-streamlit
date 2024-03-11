@@ -3,6 +3,7 @@ import time
 import joblib
 import pandas as pd
 import numpy as np
+import plotly.graph_objs as go
 from tabs.tab import TabInterface
 from sklearn.decomposition import PCA
 from sklearn.preprocessing import StandardScaler
@@ -16,6 +17,8 @@ class AnaliseProcessamentoMachineLearningUnsupervisedTab(TabInterface):
 
     def render(self):
         with self.tab:
+            df_elbow = pd.read_csv('assets/csv/elbow.csv')
+
             st.subheader(":blue[Modelo KMeans]", divider="blue")
             st.markdown(
                 """
@@ -24,15 +27,44 @@ class AnaliseProcessamentoMachineLearningUnsupervisedTab(TabInterface):
                 * [Silhouete](https://scikit-learn.org/stable/modules/clustering.html#silhouette-coefficient)
                 * [Davies Bouldin](https://scikit-learn.org/stable/modules/clustering.html#davies-bouldin-index)
                 * [Calinski Harabasz](https://scikit-learn.org/stable/modules/clustering.html#calinski-harabasz-index)
-                
+            """
+            )
+
+            fig = go.Figure()
+            fig.add_trace(go.Scatter(x=df_elbow['k'], y=df_elbow['sse'], mode='lines+markers', name='K testados'))
+            fig.update_traces(
+                marker=dict(
+                    size=14,
+                    color='red'
+                ),
+                selector=dict(mode='lines+markers')
+            )
+
+            fig.add_trace(go.Scatter(x=[df_elbow.iloc[3]['k']], y=[df_elbow.iloc[3]['sse']], mode='markers', name='K ideal'))
+            fig.update_traces(
+                marker=dict(
+                    size=20,
+                    color='green'
+                ),
+                selector=dict(mode='markers')
+            )
+
+            fig.update_layout(
+                title='Gráfico de Elbow',
+                xaxis_title='Número de clusters',
+                yaxis_title='Inércia',
+                width=700
+            )
+
+            st.plotly_chart(fig)
+
+            st.markdown(
+                '''
                 Todos os entrevistados serão inseridos em 1 dos 5 grupos.\n
 
                 **:blue[Executando o modelo KMeans]**\n
                 Preencha os campos abaixo para especificar em qual grupo o entrevistado será designado.
-            """
-            )
-
-            # TODO: mostrar um grafico dos grupos (plotly ou img?)
+            ''')
 
             lista_respostas_sintoma = {1: "Sim", 2: "Não"}
             lista_resultado_exame = {

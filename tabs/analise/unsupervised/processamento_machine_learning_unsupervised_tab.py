@@ -19,13 +19,15 @@ class AnaliseProcessamentoMachineLearningUnsupervisedTab(TabInterface):
             st.subheader(":blue[Modelo KMeans]", divider="blue")
             st.markdown(
                 """
-                O propósito principal do modelo KMeans aplicado neste projeto, reside na sua capacidade de categorizar os entrevistados em um dos cinco grupos previamente identificados. Esse processo de agrupamento facilita a análise dos dados obtidos nas entrevistas, possibilitando a extração de insights significativos e a identificação de padrões relevantes no comportamento ou nas características dos entrevistados.\n
-                Com isso, foram definidos cinco grupos distintos ou centroides numerados de 0 a 4, representando as diferentes regiões de agrupamento dos dados. Para definir a quantidade de grupos, foi utilizado o método Elbow junto de algumas métricas de dispersão, dentre elas:
+                Nesta seção é apresentado o modelo KMeans criado para este projeto. O propósito principal deste modelo reside na sua capacidade de categorizar os entrevistados em um dos cinco grupos previamente identificados. Esse processo de agrupamento facilita a análise dos dados obtidos nas entrevistas, possibilitando a extração de insights significativos e a identificação de padrões relevantes no comportamento ou nas características dos entrevistados.\n
+                Os 5 grupos ou centroides (numerados de 0 a 4), representam as diferentes regiões de agrupamento dos dados. Para definir a quantidade de grupos, foi utilizado o método Elbow junto de algumas métricas de dispersão, dentre elas:
                 * [Silhouete](https://scikit-learn.org/stable/modules/clustering.html#silhouette-coefficient)
                 * [Davies Bouldin](https://scikit-learn.org/stable/modules/clustering.html#davies-bouldin-index)
                 * [Calinski Harabasz](https://scikit-learn.org/stable/modules/clustering.html#calinski-harabasz-index)
                 
                 Todos os entrevistados serão inseridos em 1 dos 5 grupos.\n
+
+                **:blue[Executando o modelo KMeans]**\n
                 Preencha os campos abaixo para especificar em qual grupo o entrevistado será designado.
             """
             )

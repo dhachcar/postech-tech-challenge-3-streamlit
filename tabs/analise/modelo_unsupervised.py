@@ -17,7 +17,7 @@ class AnaliseModeloUnsupervisedTab(TabInterface):
     def render(self):
         with self.tab:
             tab0, tab1, tab2 = st.tabs(
-                tabs=["Correlação", "Modelo KMeans", "Modelo KMeans (BigQuery)"]
+                tabs=["Matriz de correlação", "Modelo KMeans", "Modelo KMeans (BigQuery)"]
             )
 
             AnaliseCorrelacaoTab(tab0)

@@ -10,7 +10,7 @@ class AnaliseModeloEnsembleTab(TabInterface):
 
     def render(self):
         with self.tab:
-            tab0, tab1 = st.tabs(tabs=['Correlação', 'Modelo XGBoost'])
+            tab0, tab1 = st.tabs(tabs=['Matriz de correlação', 'Modelo XGBoost'])
 
             AnaliseCorrelacaoTab(tab0)
             AnaliseProcessamentoMachineLearningEnsembleTab(tab1)

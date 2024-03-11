@@ -1,9 +1,9 @@
 import joblib
 import pandas as pd
-from sklearn.metrics import accuracy_score
-import streamlit as st
-from tabs.tab import TabInterface
 import time
+import streamlit as st
+from sklearn.metrics import accuracy_score
+from tabs.tab import TabInterface
 from util.layout import format_number
 
 
@@ -21,9 +21,7 @@ class AnaliseProcessamentoMachineLearningEnsembleTab(TabInterface):
             def get_label_for_xgboost_result(result) -> str:
                 texto_positivo = ":one: **:red[Positivo]** :worried:"
                 texto_negativo = ":two: **:green[Negativo]** :wink:"
-                texto_inconclusivo = (
-                    ":three: **:orange[Inconclusivo]** :neutral_face:"
-                )
+                texto_inconclusivo = ":three: **:orange[Inconclusivo]** :neutral_face:"
 
                 if result == "Positivo":
                     return texto_positivo
@@ -49,9 +47,9 @@ class AnaliseProcessamentoMachineLearningEnsembleTab(TabInterface):
                 "assets/modelos/ensemble/xgb-sugeridos.pkl"
             )
 
-            lista_respostas_sintoma = {1: "Sim", 2: "Nâo", 9: "Ignorado"}
+            lista_respostas_sintoma = {1: "Sim", 2: "Não", 9: "Ignorado"}
 
-            st.subheader(":blue[Machine Learning: Ensemble]", divider="blue")
+            st.subheader(":blue[Modelo XGBoost]", divider="blue")
             st.markdown(
                 """
                 Nesta seção, são apresentados dois modelos de previsão destinados a determinar se um entrevistado está ou não com COVID-19. Cada um desses modelos teve seus hiperparâmetros definidos de maneiras diferentes, o que explica a disparidade de desempenho entre eles. No entanto, ambos foram treinados e validados com o mesmo conjunto de dados. Ambos os modelos foram desenvolvidos com base no algoritmo :blue[XGBoost], um algoritmo :blue[supervisionado] do tipo :blue[ensemble].\n
@@ -97,6 +95,7 @@ class AnaliseProcessamentoMachineLearningEnsembleTab(TabInterface):
                 with col1:
                     sintoma_febre = st.selectbox(
                         "Febre",
+                        key="ensemble_sintoma_febre",
                         options=list(lista_respostas_sintoma.keys()),
                         format_func=(lambda opt: lista_respostas_sintoma[opt]),
                     )
@@ -104,6 +103,7 @@ class AnaliseProcessamentoMachineLearningEnsembleTab(TabInterface):
                 with col2:
                     sintoma_tosse = st.selectbox(
                         "Tosse",
+                        key="ensemble_sintoma_tosse",
                         options=list(lista_respostas_sintoma.keys()),
                         format_func=(lambda opt: lista_respostas_sintoma[opt]),
                     )
@@ -111,6 +111,7 @@ class AnaliseProcessamentoMachineLearningEnsembleTab(TabInterface):
                 with col3:
                     sintoma_dor_garganta = st.selectbox(
                         "Dor de garganta",
+                        key="ensemble_sintoma_dor_garganta",
                         options=list(lista_respostas_sintoma.keys()),
                         format_func=(lambda opt: lista_respostas_sintoma[opt]),
                     )
@@ -118,6 +119,7 @@ class AnaliseProcessamentoMachineLearningEnsembleTab(TabInterface):
                 with col4:
                     sintoma_dificuldade_respiracao = st.selectbox(
                         "Dificuldade para respirar",
+                        key="ensemble_sintoma_dificuldade_respirar",
                         options=list(lista_respostas_sintoma.keys()),
                         format_func=(lambda opt: lista_respostas_sintoma[opt]),
                     )
@@ -125,6 +127,7 @@ class AnaliseProcessamentoMachineLearningEnsembleTab(TabInterface):
                 with col5:
                     sintoma_dor_cabeca = st.selectbox(
                         "Dor de cabeça",
+                        key="ensemble_sintoma_dor_cabeca",
                         options=list(lista_respostas_sintoma.keys()),
                         format_func=(lambda opt: lista_respostas_sintoma[opt]),
                     )
@@ -132,6 +135,7 @@ class AnaliseProcessamentoMachineLearningEnsembleTab(TabInterface):
                 with col6:
                     sintoma_dor_peito = st.selectbox(
                         "Dor no peito",
+                        key="ensemble_sintoma_dor_peito",
                         options=list(lista_respostas_sintoma.keys()),
                         format_func=(lambda opt: lista_respostas_sintoma[opt]),
                     )
@@ -139,6 +143,7 @@ class AnaliseProcessamentoMachineLearningEnsembleTab(TabInterface):
                 with col7:
                     sintoma_diarreia = st.selectbox(
                         "Diarréia",
+                        key="ensemble_sintoma_diarreia",
                         options=list(lista_respostas_sintoma.keys()),
                         format_func=(lambda opt: lista_respostas_sintoma[opt]),
                     )
@@ -149,6 +154,7 @@ class AnaliseProcessamentoMachineLearningEnsembleTab(TabInterface):
                 with col1:
                     sintoma_nausea = st.selectbox(
                         "Náusea",
+                        key="ensemble_sintoma_nausea",
                         options=list(lista_respostas_sintoma.keys()),
                         format_func=(lambda opt: lista_respostas_sintoma[opt]),
                     )
@@ -156,6 +162,7 @@ class AnaliseProcessamentoMachineLearningEnsembleTab(TabInterface):
                 with col2:
                     sintoma_nariz_entupido = st.selectbox(
                         "Nariz entupido",
+                        key="ensemble_sintoma_nariz_entupido",
                         options=list(lista_respostas_sintoma.keys()),
                         format_func=(lambda opt: lista_respostas_sintoma[opt]),
                     )
@@ -163,6 +170,7 @@ class AnaliseProcessamentoMachineLearningEnsembleTab(TabInterface):
                 with col3:
                     sintoma_fadiga = st.selectbox(
                         "Fadiga",
+                        key="ensemble_sintoma_fadiga",
                         options=list(lista_respostas_sintoma.keys()),
                         format_func=(lambda opt: lista_respostas_sintoma[opt]),
                     )
@@ -170,6 +178,7 @@ class AnaliseProcessamentoMachineLearningEnsembleTab(TabInterface):
                 with col4:
                     sintoma_dor_nos_olhos = st.selectbox(
                         "Dor nos olhos",
+                        key="ensemble_sintoma_dor_olhos",
                         options=list(lista_respostas_sintoma.keys()),
                         format_func=(lambda opt: lista_respostas_sintoma[opt]),
                     )
@@ -177,6 +186,7 @@ class AnaliseProcessamentoMachineLearningEnsembleTab(TabInterface):
                 with col5:
                     sintoma_perda_olfato = st.selectbox(
                         "Perda de olfato",
+                        key="ensemble_sintoma_perda_olfato",
                         options=list(lista_respostas_sintoma.keys()),
                         format_func=(lambda opt: lista_respostas_sintoma[opt]),
                     )
@@ -184,10 +194,12 @@ class AnaliseProcessamentoMachineLearningEnsembleTab(TabInterface):
                 with col6:
                     sintoma_dor_muscular = st.selectbox(
                         "Dor muscular",
+                        key="ensemble_sintoma_dor_muscular",
                         options=list(lista_respostas_sintoma.keys()),
                         format_func=(lambda opt: lista_respostas_sintoma[opt]),
                     )
 
+            # função para fazer a predição
             def predict():
                 df_query = pd.DataFrame(
                     columns=[

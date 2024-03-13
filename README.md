@@ -1,8 +1,8 @@
 # postech-tech-challenge-3-streamlit
-Repositório do app Streamlit para o 3º Tech Challenge da FIAP
-**https://postech-tech-challenge-3-danilo-henrique-achcar.streamlit.app/**
+Repositório do app Streamlit para o 3º Tech Challenge da FIAP<br/>
+**Link Streamlit: https://postech-tech-challenge-3-danilo-henrique-achcar.streamlit.app/**
 
-## Como rodar o projeto
+## Como rodar o projeto Streamlit
 * Ter pelo menos o Python 3.x instalado e configurado na máquina
 * Execute o comando <code>python -m venv venv</code> para criar um novo ambiente local para instalação de dependências
 * Execute o comando <code>source venv/Scripts/activate</code> para ativar o ambiente local recém criado

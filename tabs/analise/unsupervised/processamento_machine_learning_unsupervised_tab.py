@@ -17,54 +17,86 @@ class AnaliseProcessamentoMachineLearningUnsupervisedTab(TabInterface):
 
     def render(self):
         with self.tab:
-            df_elbow = pd.read_csv('assets/csv/elbow.csv')
+            df_elbow = pd.read_csv("assets/csv/elbow.csv")
 
             st.subheader(":blue[Modelo KMeans]", divider="blue")
             st.markdown(
                 """
-                Nesta seção é apresentado o modelo KMeans criado para este projeto. O propósito principal deste modelo reside na sua capacidade de categorizar os entrevistados em um dos cinco grupos previamente identificados. Esse processo de agrupamento facilita a análise dos dados obtidos nas entrevistas, possibilitando a extração de insights significativos e a identificação de padrões relevantes no comportamento ou nas características dos entrevistados.\n
-                Os 5 grupos ou centroides (numerados de 0 a 4), representam as diferentes regiões de agrupamento dos dados. Para definir a quantidade de grupos, foi utilizado o método Elbow junto de algumas métricas de dispersão, dentre elas:
+                Nesta seção é apresentado o modelo KMeans criado para este projeto. O propósito principal deste modelo reside na sua capacidade de categorizar os entrevistados em \"N\" grupos previamente definidos. Esse processo de agrupamento facilita a análise dos dados obtidos nas entrevistas, possibilitando a extração de insights significativos e a identificação de padrões relevantes no comportamento ou nas características dos entrevistados.\n
+                Para definirmos a quantidade ideal de grupos ou centroides que o modelo irá considerar, foi utilizado o :blue[método Elbow] (popularmente conhecido como método do Cotovelo), junto de algumas métricas de dispersão, dentre elas:
                 * [Silhouete](https://scikit-learn.org/stable/modules/clustering.html#silhouette-coefficient)
                 * [Davies Bouldin](https://scikit-learn.org/stable/modules/clustering.html#davies-bouldin-index)
                 * [Calinski Harabasz](https://scikit-learn.org/stable/modules/clustering.html#calinski-harabasz-index)
+
+                Após a análise do gráfico plotado pelo :blue[método Elbow] e dos valores retornados em cada métrica, fica definido como total ideal, o valor de :blue[5 grupos].
             """
             )
 
             fig = go.Figure()
-            fig.add_trace(go.Scatter(x=df_elbow['k'], y=df_elbow['sse'], mode='lines+markers', name='K testados'))
+            fig.add_trace(
+                go.Scatter(
+                    x=df_elbow["k"],
+                    y=df_elbow["sse"],
+                    mode="lines+markers",
+                    name="K testados",
+                )
+            )
             fig.update_traces(
-                marker=dict(
-                    size=14,
-                    color='red'
-                ),
-                selector=dict(mode='lines+markers')
+                marker=dict(size=14, color="red"), selector=dict(mode="lines+markers")
             )
 
-            fig.add_trace(go.Scatter(x=[df_elbow.iloc[3]['k']], y=[df_elbow.iloc[3]['sse']], mode='markers', name='K ideal'))
+            fig.add_trace(
+                go.Scatter(
+                    x=[df_elbow.iloc[3]["k"]],
+                    y=[df_elbow.iloc[3]["sse"]],
+                    mode="markers",
+                    name="K ideal",
+                )
+            )
             fig.update_traces(
-                marker=dict(
-                    size=20,
-                    color='green'
-                ),
-                selector=dict(mode='markers')
+                marker=dict(size=20, color="green"), selector=dict(mode="markers")
             )
 
             fig.update_layout(
-                title='Gráfico de Elbow',
-                xaxis_title='Número de clusters',
-                yaxis_title='Inércia',
-                width=700
+                title="Gráfico de Elbow",
+                xaxis_title="Número de clusters",
+                yaxis_title="Inércia",
+                width=700,
             )
 
             st.plotly_chart(fig)
 
             st.markdown(
-                '''
-                Todos os entrevistados serão inseridos em 1 dos 5 grupos.\n
+                """
+                Todos os entrevistados :blue[serão inseridos em 1 desses 5 grupos].\n
+            """
+            )
 
+            st.markdown(
+                """
+                **:blue[Distribuição do modelo criado]**\n
+                Além de definirmos o modelo com :blue[5 centroides], também aplicamos a técnica de :blue[PCA] (sugestão da prof. Ana Raquel) para reduzir a dimensionalidade do conjunto de dados escolhido, para treinamento do modelo. O objetivo aqui era chegar em 2 componentes (ou features reduzidas), de forma a permitir uma simplificação do treinamento e facilitar a sua plotagem num gráfico, conforme abaixo:
+            """
+            )
+
+            st.image(
+                "assets/img/plot-kmeans.png",
+                caption="Distribuição PCA do conjunto de dados",
+            )
+
+            st.markdown(
+                """
+                À respeito da imagem acima, podemos observar os :blue[5 grupos ou centroides] mencionados anteriormente, representados pelos circulos em vermelho.\n
+                No próximo bloco, é apresentada a interface de input do modelo para consumo.
+            """
+            )
+
+            st.markdown(
+                """
                 **:blue[Executando o modelo KMeans]**\n
                 Preencha os campos abaixo para especificar em qual grupo o entrevistado será designado.
-            ''')
+            """
+            )
 
             lista_respostas_sintoma = {1: "Sim", 2: "Não"}
             lista_resultado_exame = {
@@ -295,13 +327,13 @@ class AnaliseProcessamentoMachineLearningUnsupervisedTab(TabInterface):
                     [qtd_sintomas_leves + qtd_sintomas_medios + qtd_sintomas_graves]
                 )
 
-                # aplica o scaler
+                # aplica o scaler carregado via joblib
                 X_scaled = scaler.transform(X)
 
-                # aplica o PCA
+                # aplica o PCA carregado via joblib
                 X_pca = pca.transform(X_scaled)
 
-                # faz a previsão
+                # faz a previsão com modelo carregado via joblib
                 previsao = kmeans.predict(X_pca)
 
                 st.markdown(
@@ -315,7 +347,7 @@ class AnaliseProcessamentoMachineLearningUnsupervisedTab(TabInterface):
                 st.subheader(":blue[Resultados]", divider="blue")
 
                 st.markdown(
-                        f"""
+                    f"""
                         :orange[Grupo sugerido: <big><b>{previsao[0]}</b></big>]
                     """,
                     unsafe_allow_html=True,

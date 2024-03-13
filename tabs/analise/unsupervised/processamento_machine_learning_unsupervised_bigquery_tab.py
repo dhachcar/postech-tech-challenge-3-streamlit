@@ -35,6 +35,6 @@ class AnaliseProcessamentoMachineLearningUnsupervisedBigqueryTab(TabInterface):
             )
             st.markdown(
                 """
-                Para desenvolvimentos futuros, a sugestão é integrar o :blue[BigQuery] à esta aplicação :blue[Streamlit] para consumirmos o modelo diretamente do BigQuery. Vale notar que esta integração implicaria em gastos para o desenvolvimento do projeto, o que esta fora do escopo proposto.
+                Para desenvolvimentos futuros, a sugestão é integrar o :blue[BigQuery] à esta aplicação :blue[Streamlit] para consumirmos o modelo diretamente do :blue[BigQuery]. Vale notar que esta integração implicaria em gastos para o desenvolvimento do projeto, o que esta fora do escopo proposto.
             """
             )

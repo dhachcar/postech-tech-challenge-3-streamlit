@@ -18,5 +18,5 @@ Acesse o [repositório](https://github.com/dhachcar/postech-tech-challenge-3-str
 ## GIT Notebooks
 Acesse o [repositório](https://github.com/dhachcar/postech-tech-challenge-3) para obter os notebooks do projeto.
 
-**1) Tech_Challenge_3_Exploração_Inicial.ipynb** - notebook com a exploração inicial dos dados, utilizando a biblioteca do PySpark.
-**2) Tech_Challenge_3_Análises_para_o_Streamlit.ipynb** - notebook com uma análise mais aprofundada dos dados, com conexão ao BigQuery, carregamento dos dados em Spark, geração de plots, criação de modelos de ML e exportação de assets para uso exclusivo no app Streamlit.
+* **Tech_Challenge_3_Exploração_Inicial.ipynb** - notebook com a exploração inicial dos dados, utilizando a biblioteca do PySpark.
+* **Tech_Challenge_3_Análises_para_o_Streamlit.ipynb** - notebook com uma análise mais aprofundada dos dados, com conexão ao BigQuery, carregamento dos dados em Spark, geração de plots, criação de modelos de ML e exportação de assets para uso exclusivo no app Streamlit.

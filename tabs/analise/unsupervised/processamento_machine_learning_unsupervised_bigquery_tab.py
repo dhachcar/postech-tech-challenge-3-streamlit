@@ -14,9 +14,9 @@ class AnaliseProcessamentoMachineLearningUnsupervisedBigqueryTab(TabInterface):
             )
             st.markdown(
                 """
-                Utilizando os recursos poderosos do BigQuery, aplicamos o algoritmo KMeans para analisar os dados da PNAD COVID-19. Este modelo, embora construído com uma abordagem ligeiramente diferente em comparação com o modelo anteriormente desenvolvido via scikit-learn, ainda mantém o mesmo objetivo: segmentar os dados em grupos distintos para fornecer insights valiosos.\n
-                É importante ressaltar que, apesar de algumas variações na metodologia de construção do modelo, o número de clusters ou centroides permaneceu consistente em 5. Essa escolha estratégica permite uma análise comparativa consistente entre os diferentes modelos e garante a coerência na interpretação dos resultados.\n
-                Ao analisar os resultados deste modelo KMeans executado no BigQuery, esperamos identificar padrões interessantes nos dados da PNAD COVID-19, possibilitando uma compreensão mais profunda das diferentes características e comportamentos presentes na amostra entrevistada. Esses insights podem ser fundamentais para orientar políticas públicas, estratégias de saúde e outras decisões importantes relacionadas à pandemia.
+                Utilizando os recursos poderosos do :blue[BigQuery], aplicamos o algoritmo KMeans para analisar os dados da PNAD COVID-19. Este modelo, embora construído com uma abordagem ligeiramente diferente em comparação com o modelo anteriormente desenvolvido via scikit-learn, ainda mantém o mesmo objetivo: segmentar os dados em grupos distintos para fornecer insights valiosos.\n
+                É importante ressaltar que, apesar de algumas variações na metodologia de construção do modelo, o número de clusters ou centroides permaneceu consistente em :blue[5]. Essa escolha estratégica permite uma análise comparativa consistente entre os diferentes modelos e garante a coerência na interpretação dos resultados.\n
+                Ao analisar os resultados deste modelo KMeans executado no :blue[BigQuery], esperamos identificar padrões interessantes nos dados da PNAD COVID-19, possibilitando uma compreensão mais profunda das diferentes características e comportamentos presentes na amostra entrevistada. Esses insights podem ser fundamentais para orientar políticas públicas, estratégias de saúde e outras decisões importantes relacionadas à futuras pandemias.
             """
             )
 
